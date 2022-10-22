@@ -1,6 +1,12 @@
 <template>
   <q-page class="">
+    <!-- ///////////// -->
+    <!-- header navbar -->
+    <!-- ///////////// -->
     <DynamicHeader />
+    <!-- ///////////////////// -->
+    <!-- input for main search -->
+    <!-- ///////////////////// -->
     <q-input
       class="main-rounded q-mx-auto q-mt-lg"
       style="width: 90%"
