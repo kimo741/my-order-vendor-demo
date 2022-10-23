@@ -7,6 +7,7 @@
     <!-- ///////////////////// -->
     <!-- input for main search -->
     <!-- ///////////////////// -->
+    <AriaChart />
     <q-input
       class="main-rounded q-mx-auto q-mt-lg"
       style="width: 90%"
@@ -36,9 +37,10 @@
 <script>
 import { defineComponent } from "vue";
 import DynamicHeader from "src/components/UI/DynamicHeader.vue";
+import AriaChart from "src/components/Charts/AriaChart.vue";
 
 export default defineComponent({
   name: "IndexPage",
-  components: { DynamicHeader },
+  components: { DynamicHeader, AriaChart },
 });
 </script>
