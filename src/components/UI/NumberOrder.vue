@@ -98,8 +98,8 @@
             </svg>
           </div>
         </div>
-        <div class="price">ر.س6,524</div>
-        <div class="category">المكسب</div>
+        <div class="price" style="color:#1068F0">ر.س6,524</div>
+        <div class="category">وصف</div>
       </q-card-section>
     </q-card>
     <q-card class="my-card card1">
@@ -122,8 +122,8 @@
           </div>
 
         </div>
-        <div class="price">ر.س6,524</div>
-        <div class="category">المكسب</div>
+        <div class="price" style="color:#13B8D1">ر.س6,524</div>
+        <div class="category">الطلبات المستقبلية</div>
       </q-card-section>
     </q-card>
     <q-card class="my-card card1">
@@ -143,8 +143,8 @@
           </div>
 
         </div>
-        <div class="price">ر.س6,524</div>
-        <div class="category">المكسب</div>
+        <div class="price" style="color:#29B26F">ر.س6,524</div>
+        <div class="category">صافي الربح</div>
       </q-card-section>
     </q-card>
   </div>
