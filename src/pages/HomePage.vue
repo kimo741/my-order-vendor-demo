@@ -31,16 +31,56 @@
         </q-avatar>
       </template>
     </q-input>
+    <NumberOrder label_title="عدد الطلبات الوارده اليوم" :cards="cards" />
+    <NumberOrder :cards="cards" />
   </q-page>
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { ref } from "vue";
 import DynamicHeader from "src/components/UI/DynamicHeader.vue";
-import AriaChart from "src/components/Charts/AriaChart.vue";
+import NumberOrder from "src/components/UI/NumberOrder.vue";
 
-export default defineComponent({
+export default {
   name: "IndexPage",
-  components: { DynamicHeader, AriaChart },
-});
+  components: { DynamicHeader, NumberOrder },
+  setup() {
+    return {
+      cards: ref([
+        {
+          id: "1",
+          title: "المكسب",
+          img: "icon/wins.png",
+          analytics: "9.5",
+          price: "6,524",
+          color: "text-primary",
+        },
+        {
+          id: "2",
+          title: "وصف",
+          img: "icon/discraption.png",
+          analytics: "-9.5",
+          price: "6,524",
+          color: "text-blue",
+        },
+        {
+          id: "3",
+          title: "الطلبات المستقبله",
+          img: "icon/incoming-order.png",
+          analytics: "9.5",
+          price: "6,524",
+          color: "text-cyan-13",
+        },
+        {
+          id: "4",
+          title: "صافي الربح",
+          img: "icon/net-profit.png",
+          analytics: "9.5",
+          price: "6,524",
+          color: "text-green",
+        },
+      ]),
+    };
+  },
+};
 </script>
