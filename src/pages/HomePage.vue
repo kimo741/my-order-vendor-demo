@@ -30,15 +30,17 @@
         </q-avatar>
       </template>
     </q-input>
+    <NumberOrder />
   </q-page>
 </template>
 
 <script>
 import { defineComponent } from "vue";
 import DynamicHeader from "src/components/UI/DynamicHeader.vue";
+import NumberOrder from "src/components/UI/NumberOrder.vue";
 
 export default defineComponent({
   name: "IndexPage",
-  components: { DynamicHeader },
+  components: { DynamicHeader, NumberOrder},
 });
 </script>
