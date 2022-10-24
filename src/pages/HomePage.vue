@@ -31,21 +31,43 @@
         </q-avatar>
       </template>
     </q-input>
-    <NumberOrder label_title="عدد الطلبات الوارده اليوم" :cards="cards" />
-    <NumberOrder :cards="cards" />
+    <AnalyticsOrder
+      @passSorting="sellectedSort"
+      label_title="عدد الطلبات الوارده اليوم"
+      :cards="cards"
+    />
+    <AnalyticsOrder
+      @passSorting="sellectedSort"
+      label_title="عدد الطلبات الوارده اليوم"
+      :cards="cards"
+    />
+    <AnalyticsOrder
+      @passSorting="sellectedSort"
+      label_title="عدد الطلبات الوارده اليوم"
+      :cards="cards"
+    />
+    <AnalyticsOrder
+      @passSorting="sellectedSort"
+      label_title="عدد الطلبات الوارده اليوم"
+      :cards="cards"
+    />
   </q-page>
 </template>
 
 <script>
 import { ref } from "vue";
 import DynamicHeader from "src/components/UI/DynamicHeader.vue";
-import NumberOrder from "src/components/UI/NumberOrder.vue";
+import AnalyticsOrder from "src/components/UI/Dashboard/AnalyticsOrder.vue";
+import TitleBar from "src/components/UI/TitleBar.vue";
 
 export default {
   name: "IndexPage",
-  components: { DynamicHeader, NumberOrder },
+  components: { DynamicHeader, AnalyticsOrder, TitleBar },
   setup() {
     return {
+      day: "",
+      month: "",
+      year: "",
       cards: ref([
         {
           id: "1",
@@ -81,6 +103,23 @@ export default {
         },
       ]),
     };
+  },
+  methods: {
+    sellectedSort(val) {
+      console.log(val);
+    },
+    // getDays() {
+    //   // get day
+    //   // this.day  = respons
+    // },
+    // getmonth() {
+    //   // get month
+    //   // this.month  = respons
+    // },
+    // getYear() {
+    //   // get day
+    //   // this.day  = respons
+    // },
   },
 };
 </script>

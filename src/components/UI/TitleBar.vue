@@ -7,7 +7,7 @@
       <q-btn
         @click="$emit('showAll')"
         size="sm"
-        label="مشاهدة الكل"
+        label="مشاهدةالكل"
         flat
         color="primary"
       ></q-btn>
