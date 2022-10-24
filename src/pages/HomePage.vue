@@ -51,6 +51,9 @@
       label_title="عدد الطلبات الوارده اليوم"
       :cards="cards"
     />
+    <NumperOfOrder
+    label_title="عدد الطلبات الجارية"
+    />
   </q-page>
 </template>
 
@@ -59,10 +62,11 @@ import { ref } from "vue";
 import DynamicHeader from "src/components/UI/DynamicHeader.vue";
 import AnalyticsOrder from "src/components/UI/Dashboard/AnalyticsOrder.vue";
 import TitleBar from "src/components/UI/TitleBar.vue";
+import NumperOfOrder from "src/components/UI/Dashboard/NumperOfOrder.vue";
 
 export default {
   name: "IndexPage",
-  components: { DynamicHeader, AnalyticsOrder, TitleBar },
+  components: { DynamicHeader, AnalyticsOrder, TitleBar,NumperOfOrder },
   setup() {
     return {
       day: "",
