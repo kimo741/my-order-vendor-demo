@@ -37,14 +37,14 @@
       >
         <q-card-section>
           <div class="row">
-            <img :src="order.img" alt="" class="handelImg" />
+            <img :src="order.img" alt="" class="handel-img" />
           </div>
           <div class="row">
-            <div class="col NameStyle">{{ order.name }}</div>
+            <div class="col name-style">{{ order.name }}</div>
             <div class="col price">{{ order.price }}ر.س</div>
           </div>
           <div class="row">
-            <div class="col orderNumber">طلب رقم {{ order.orderNumber }}</div>
+            <div class="col order-number">طلب رقم {{ order.orderNumber }}</div>
             <div class="col date">{{ order.date }}</div>
           </div>
         </q-card-section>
@@ -86,12 +86,12 @@ export default {
   width: 161px;
   margin-bottom: 25px;
 
-  .handelImg {
+  .handel-img {
     width: 100%;
     height: 100%;
     margin-bottom: 5px;
   }
-  .NameStyle {
+  .name-style {
     font-family: "Tajawal";
     font-style: normal;
     font-weight: 500;
@@ -124,13 +124,12 @@ export default {
 
     color: rgba(0, 0, 0, 0.5);
   }
-  .orderNumber {
+  .order-number {
     font-family: "Tajawal";
     font-style: normal;
     font-weight: 500;
     font-size: 10px;
     line-height: 22px;
-    /* identical to box height, or 220% */
 
     align-items: center;
     letter-spacing: -0.408px;
