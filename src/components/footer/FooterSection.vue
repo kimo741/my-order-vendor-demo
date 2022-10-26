@@ -51,21 +51,21 @@
       </q-list>
       <q-list class="col-5 row">
         <q-item
-          :class="this.$route.path == '/orders' ? 'footer-section__active' : ''"
-          to="/shops"
+          :class="this.$route.path == '/order' ? 'footer-section__active' : ''"
+          to="/order"
           class="col text-grey text-primary column"
         >
           <q-icon
             class="q-mx-auto"
             size="sm"
             :name="
-              this.$route.path == '/orders'
+              this.$route.path == '/order'
                 ? 'img:icon/orders-active.png'
                 : 'img:icon/orders.png'
             "
           />
           <div
-            v-if="this.$route.path == '/shops'"
+            v-if="this.$route.path == '/order'"
             class="text-center text-links"
           >
             الطلبات
