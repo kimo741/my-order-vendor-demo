@@ -7,7 +7,7 @@
     <!-- ///////////////////// -->
     <!-- input for main search -->
     <!-- ///////////////////// -->
-    <AriaChart />
+
     <q-input
       class="main-rounded q-mx-auto q-mt-lg"
       style="width: 90%"
@@ -36,6 +36,7 @@
       label_title="عدد الطلبات الوارده اليوم"
       :cards="cards"
     />
+    <AriaChart :options="options" :series="series" />
     <AnalyticsOrder
       @passSorting="sellectedSort"
       label_title="عدد الطلبات الوارده اليوم"
@@ -59,15 +60,58 @@ import { ref } from "vue";
 import DynamicHeader from "src/components/UI/DynamicHeader.vue";
 import AnalyticsOrder from "src/components/UI/Dashboard/AnalyticsOrder.vue";
 import TitleBar from "src/components/UI/TitleBar.vue";
+import AriaChart from "src/components/Charts/AriaChart.vue";
 
 export default {
   name: "IndexPage",
-  components: { DynamicHeader, AnalyticsOrder, TitleBar },
+  components: { DynamicHeader, AnalyticsOrder, TitleBar, AriaChart },
   setup() {
     return {
-      day: "",
-      month: "",
-      year: "",
+      // chart
+      options: ref({
+        xaxis: {
+          categories: ["h0", "h3", "h6", "h9", "h12"],
+          labels: {
+            datetimeFormatter: {
+              hour: "HH",
+            },
+          },
+          title: {
+            text: "الوقت بالساعه",
+          },
+        },
+        yaxis: {
+          title: {
+            text: "ر س",
+          },
+        },
+
+        colors: ["#FF6B61"],
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: "smooth",
+        },
+        markers: {
+          size: 5,
+        },
+        theme: {
+          palette: "palette1",
+        },
+        tooltip: {
+          intersect: true,
+          shared: false,
+        },
+      }),
+      // /////////
+      series: ref([
+        {
+          name: "الدخل الوارد",
+          data: [55, 62, 89, 66, 98],
+        },
+      ]),
+      //////////////
       cards: ref([
         {
           id: "1",

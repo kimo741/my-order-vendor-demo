@@ -1,35 +1,14 @@
 <template>
-  <div id="chart">
-    <apexchart
-      type="area"
-      height="350"
-      :options="chartOptions"
-      :series="series"
-    ></apexchart>
+  <div>
+    <apexchart width="100%" type="area" :options="options" :series="series">
+    </apexchart>
   </div>
 </template>
-
 <script>
-import ApexCharts from "apexcharts";
 export default {
-  components: { ApexCharts },
-  data() {
-    return {
-      series: [
-        {
-          data: [
-            {
-              x: 20,
-              y: 54,
-            },
-            {
-              x: 30,
-              y: 66,
-            },
-          ],
-        },
-      ],
-    };
+  props: ["options", "series"],
+  setup() {
+    return {};
   },
 };
 </script>
