@@ -11,6 +11,7 @@
           class="col"
           size="md"
           icon="eva-arrow-ios-forward-outline"
+          @click="this.$router.go(-1)"
         />
         <!-- //////////////// -->
         <!-- notfication icon -->

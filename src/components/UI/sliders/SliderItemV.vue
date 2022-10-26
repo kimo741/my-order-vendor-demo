@@ -49,6 +49,8 @@ export default {
 <style lang="scss" scoped>
 .slider-v {
   position: relative;
+  margin: 0 20px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   overflow-x: scroll;
