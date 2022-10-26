@@ -1,7 +1,7 @@
 <template>
   <div dir="rtl" class="q-my-sm full-width row justify-between">
     <div class="col">
-      <div class="text-body2 text-bold">{{ label }}</div>
+      <div class="text-body2" style="font-weight: 500">{{ label }}</div>
     </div>
     <div class="col text-body2 text-left">
       <q-btn

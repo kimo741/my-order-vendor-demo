@@ -31,27 +31,29 @@
         </q-avatar>
       </template>
     </q-input>
+    <!-- /////////////// -->
+    <!-- Analytics Order -->
+    <!-- /////////////// -->
     <AnalyticsOrder
       @passSorting="sellectedSort"
       label_title="عدد الطلبات الوارده اليوم"
       :cards="cards"
     />
+    <!-- /////////////////////////////////////////////////////// -->
+    <!-- title bar with dropdown to sellect day or month or year -->
+    <!-- /////////////////////////////////////////////////////// -->
+    <TitleBarWithDropdown
+      @showAll="showAllChart"
+      label_title="مبلغ الدخل الوارد "
+      @passSorting="selectedDataTimeChart"
+    />
+    <!-- ////////// -->
+    <!-- aria chart -->
+    <!-- ////////// -->
     <AriaChart :options="options" :series="series" />
-    <AnalyticsOrder
-      @passSorting="sellectedSort"
-      label_title="عدد الطلبات الوارده اليوم"
-      :cards="cards"
-    />
-    <AnalyticsOrder
-      @passSorting="sellectedSort"
-      label_title="عدد الطلبات الوارده اليوم"
-      :cards="cards"
-    />
-    <AnalyticsOrder
-      @passSorting="sellectedSort"
-      label_title="عدد الطلبات الوارده اليوم"
-      :cards="cards"
-    />
+    <NumperOfOrder @showAll="curentOrders" label_title="عدد الطلبات الجارية" />
+    <TitleBar @showAll="showAllTopProduct" label="الوجبات الاكثر طلبا" />
+    <SliderItemV :products="items" />
   </q-page>
 </template>
 
@@ -61,12 +63,53 @@ import DynamicHeader from "src/components/UI/DynamicHeader.vue";
 import AnalyticsOrder from "src/components/UI/Dashboard/AnalyticsOrder.vue";
 import TitleBar from "src/components/UI/TitleBar.vue";
 import AriaChart from "src/components/Charts/AriaChart.vue";
+import NumperOfOrder from "src/components/UI/Dashboard/NumperOfOrder.vue";
+import TitleBarWithDropdown from "src/components/UI/Dashboard/TitleBarWithDropdown.vue";
+import SliderItemV from "src/components/UI/sliders/SliderItemV.vue";
 
 export default {
   name: "IndexPage",
-  components: { DynamicHeader, AnalyticsOrder, TitleBar, AriaChart },
+  components: {
+    DynamicHeader,
+    AnalyticsOrder,
+    TitleBar,
+    AriaChart,
+    NumperOfOrder,
+    TitleBarWithDropdown,
+    SliderItemV,
+  },
   setup() {
     return {
+      items: ref([
+        {
+          id: "1",
+          img: "test/prod1.png",
+          title: "اسم الطبق",
+          price: "400",
+          disc: "وريم ايبسوم هو نموذج افتراضي يوضع فيالتصاميم على العميل ليتصور طريقه ",
+        },
+        {
+          id: "1",
+          img: "test/prod2.png",
+          title: "اسم الطبق",
+          price: "400",
+          disc: "وريم ايبسوم هو نموذج افتراضي يوضع فيالتصاميم على العميل ليتصور طريقه ",
+        },
+        {
+          id: "1",
+          img: "test/prod1.png",
+          title: "اسم الطبق",
+          price: "400",
+          disc: "وريم ايبسوم هو نموذج افتراضي يوضع فيالتصاميم على العميل ليتصور طريقه  ",
+        },
+        {
+          id: "1",
+          img: "test/prod2.png",
+          title: "اسم الطبق",
+          price: "400",
+          disc: "وريم ايبسوم هو نموذج افتراضي يوضع فيالتصاميم على العميل ليتصور طريقه ",
+        },
+      ]),
       // chart
       options: ref({
         xaxis: {
@@ -85,7 +128,6 @@ export default {
             text: "ر س",
           },
         },
-
         colors: ["#FF6B61"],
         dataLabels: {
           enabled: false,
@@ -152,18 +194,18 @@ export default {
     sellectedSort(val) {
       console.log(val);
     },
-    // getDays() {
-    //   // get day
-    //   // this.day  = respons
-    // },
-    // getmonth() {
-    //   // get month
-    //   // this.month  = respons
-    // },
-    // getYear() {
-    //   // get day
-    //   // this.day  = respons
-    // },
+    curentOrders() {
+      // see all curent orders
+    },
+    showAllChart() {
+      // see all charts
+    },
+    selectedDataTimeChart(selected) {
+      // selected charts
+    },
+    showAllTopProduct(selected) {
+      // show all top products
+    },
   },
 };
 </script>

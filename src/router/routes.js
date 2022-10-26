@@ -1,10 +1,15 @@
+import OrdersPage from "src/pages/OrdersView.vue"
 
 const routes = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/HomePage.vue') }
+      { path: '', component: () => import('pages/HomePage.vue') },
+      { path: '/order',
+       component: OrdersPage,
+        name:"orders"
+      },
     ]
   },
 
