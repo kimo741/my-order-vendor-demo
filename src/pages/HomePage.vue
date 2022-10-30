@@ -54,6 +54,69 @@
     <NumperOfOrder @showAll="curentOrders" label_title="عدد الطلبات الجارية" />
     <TitleBar @showAll="showAllTopProduct" label="الوجبات الاكثر طلبا" />
     <SliderItemV :products="items" />
+    <!-- /////////////////////////////////// -->
+    <!-- dinamic grid component for four div -->
+    <!-- /////////////////////////////////// -->
+    <grid-four>
+      <!-- ////// -->
+      <!-- col -1 -->
+      <!-- ////// -->
+      <template #colOne>
+        <div class="text-right text-body2 text-bold q-ma-sm">جاهزية الطلب</div>
+        <!-- ////// -->
+        <!-- dounat -->
+        <!-- ////// -->
+        <DounatChart :chartOptions="options_dounat" />
+      </template>
+      <!-- ////// -->
+      <!-- col -2 -->
+      <!-- ////// -->
+      <template #colTow>
+        <!-- //////////////// -->
+        <!-- top title dounat -->
+        <!-- //////////////// -->
+        <div
+          class="text-right text-body2 text-bold q-ma-sm"
+          style="height: 1rem"
+        >
+          مده استلام المندوب للطلب
+        </div>
+        <!-- ////// -->
+        <!-- dounat -->
+        <!-- ////// -->
+        <DounatChart :chartOptions="options_dounat" />
+      </template>
+      <!-- ////// -->
+      <!-- col -3 -->
+      <!-- ////// -->
+      <template #colthree>
+        <!-- //////////////// -->
+        <!-- top title dounat -->
+        <!-- //////////////// -->
+        <div class="text-right text-body2 text-bold q-ma-sm">
+          مستوي رضي العميل
+        </div>
+        <!-- ////// -->
+        <!-- dounat -->
+        <!-- ////// -->
+        <DounatChart :chartOptions="options_dounat"
+      /></template>
+      <!-- ////// -->
+      <!-- col -4 -->
+      <!-- ////// -->
+      <template #colFour>
+        <!-- //////////////// -->
+        <!-- top title dounat -->
+        <!-- //////////////// -->
+        <div class="text-right text-body2 text-bold q-ma-sm">
+          تقييم العميل للمتجر
+        </div>
+        <!-- ////// -->
+        <!-- dounat -->
+        <!-- ////// -->
+        <DounatChart :chartOptions="options_dounat" />
+      </template>
+    </grid-four>
   </q-page>
 </template>
 
@@ -66,6 +129,8 @@ import AriaChart from "src/components/Charts/AriaChart.vue";
 import NumperOfOrder from "src/components/UI/Dashboard/NumperOfOrder.vue";
 import TitleBarWithDropdown from "src/components/UI/Dashboard/TitleBarWithDropdown.vue";
 import SliderItemV from "src/components/UI/sliders/SliderItemV.vue";
+import DounatChart from "src/components/Charts/DounatChart.vue";
+import GridFour from "src/components/UI/grid/GridFour.vue";
 
 export default {
   name: "IndexPage",
@@ -77,9 +142,30 @@ export default {
     NumperOfOrder,
     TitleBarWithDropdown,
     SliderItemV,
+    DounatChart,
+    GridFour,
   },
   setup() {
     return {
+      options_dounat: ref({
+        series: [80],
+        plotOptions: {
+          radialBar: {
+            hollow: {
+              size: "50%",
+            },
+            dataLabels: {
+              name: {
+                show: false,
+              },
+              value: {
+                show: false,
+              },
+            },
+          },
+        },
+        colors: ["#FF6B61"],
+      }),
       items: ref([
         {
           id: "1",
@@ -198,6 +284,7 @@ export default {
       // see all curent orders
     },
     showAllChart() {
+      this.$router.push("/gain-chart");
       // see all charts
     },
     selectedDataTimeChart(selected) {
