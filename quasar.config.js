@@ -25,6 +25,7 @@ module.exports = configure(function (ctx) {
     boot: [
       'i18n',
       'axios',
+      'apollo'
     ],
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-css
@@ -70,8 +71,25 @@ module.exports = configure(function (ctx) {
       // https://v2.quasar.dev/quasar-cli-webpack/handling-webpack
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
 
-      chainWebpack (/* chain */) {}
-
+      chainWebpack (chain, { isServer, isClient }) {
+        chain.module.rule('vue')
+          .use('vue-loader')
+          .loader('vue-loader')
+          .tap(options => {
+            options.transpileOptions = {
+              transforms: {
+                dangerousTaggedTemplateString: true
+              }
+            }
+            return options
+          })
+        },
+      chainWebpack (chain, { isServer, isClient }) {
+        chain.module.rule('gql')
+        .test(/\.(graphql|gql)$/)
+        .use('graphql-tag/loader')
+        .loader('graphql-tag/loader')
+        },
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-devServer

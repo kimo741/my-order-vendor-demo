@@ -1,5 +1,6 @@
 <template>
   <q-page class="">
+    {{ locations }}asdasd
     <!-- ///////////// -->
     <!-- header navbar -->
     <!-- ///////////// -->
@@ -131,7 +132,7 @@ import TitleBarWithDropdown from "src/components/UI/Dashboard/TitleBarWithDropdo
 import SliderItemV from "src/components/UI/sliders/SliderItemV.vue";
 import DounatChart from "src/components/Charts/DounatChart.vue";
 import GridFour from "src/components/UI/grid/GridFour.vue";
-
+import { location } from "./use/HomePageGraph";
 export default {
   name: "IndexPage",
   components: {
@@ -146,7 +147,10 @@ export default {
     GridFour,
   },
   setup() {
+    // graphql requist
+    const { locations } = location();
     return {
+      locations,
       options_dounat: ref({
         series: [80],
         plotOptions: {
@@ -276,6 +280,7 @@ export default {
       ]),
     };
   },
+
   methods: {
     sellectedSort(val) {
       console.log(val);
