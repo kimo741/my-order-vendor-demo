@@ -1,6 +1,6 @@
 <template>
-  <q-page class="">
-    {{ locations }}asdasd
+  <q-page class="q-mx-sm">
+    <!-- {{ locations }}asdasd -->
     <!-- ///////////// -->
     <!-- header navbar -->
     <!-- ///////////// -->
@@ -8,30 +8,7 @@
     <!-- ///////////////////// -->
     <!-- input for main search -->
     <!-- ///////////////////// -->
-
-    <q-input
-      class="main-rounded q-mx-auto q-mt-lg"
-      style="width: 90%"
-      flat
-      bottom-slots
-      v-model="global_search"
-      bg-color="grey-4"
-      dense
-      rounded
-      filled
-      label="بحث"
-      @focusin="focusInput"
-    >
-      <!-- @focusout="outOfFocus" -->
-      <!-- /////////// -->
-      <!-- icon search -->
-      <!-- /////////// -->
-      <template v-slot:prepend>
-        <q-avatar>
-          <q-icon size="xs" name="img:icon/Search.png" />
-        </q-avatar>
-      </template>
-    </q-input>
+    <MainSearchBar />
     <!-- /////////////// -->
     <!-- Analytics Order -->
     <!-- /////////////// -->
@@ -133,6 +110,7 @@ import SliderItemV from "src/components/UI/sliders/SliderItemV.vue";
 import DounatChart from "src/components/Charts/DounatChart.vue";
 import GridFour from "src/components/UI/grid/GridFour.vue";
 import { location } from "./use/HomePageGraph";
+import MainSearchBar from "src/components/UI/search/mainSearchBar.vue";
 export default {
   name: "IndexPage",
   components: {
@@ -145,6 +123,7 @@ export default {
     SliderItemV,
     DounatChart,
     GridFour,
+    MainSearchBar,
   },
   setup() {
     // graphql requist
@@ -295,8 +274,8 @@ export default {
     selectedDataTimeChart(selected) {
       // selected charts
     },
-    showAllTopProduct(selected) {
-      // show all top products
+    showAllTopProduct() {
+      this.$router.push("top-products");
     },
   },
 };

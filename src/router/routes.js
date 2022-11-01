@@ -1,5 +1,7 @@
 import OrdersPage from "src/pages/OrdersView.vue"
 import GainChart from "src/pages/chart/ChartAllGain.vue"
+import TopProduct from "src/pages/UI/TopOrders.vue"
+import ProductPage from 'src/pages/ProductPage'
 
 const routes = [
   {
@@ -17,6 +19,14 @@ const routes = [
       { path: '/gain-chart',
        component: GainChart,
         name:"gain-chart"
+      },
+      { path: '/top-products',
+       component: TopProduct,
+        name:"top-products"
+      },
+      { path: '/product',
+       component: ProductPage,
+        name:"procuct"
       },
     ]
   },

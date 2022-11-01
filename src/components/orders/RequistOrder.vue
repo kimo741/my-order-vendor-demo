@@ -1,5 +1,5 @@
 <template>
-  <div class="q-my-sm q-mx-sm" dir="rtl">
+  <div class="past-order q-my-sm q-mx-sm" dir="rtl">
     <q-card
       v-for="(order, i) in orders"
       :key="i"
@@ -8,12 +8,14 @@
     >
       <q-card-section>
         <div class="row">
-          <div class="col-6 q-mx-sm">رقم الطلب{{ order.orderNumber }}#</div>
-          <div class="col text-left"><img src="/icon/XMLID.png" alt="" /></div>
+          <div class="col-6">رقم الطلب{{ order.orderNumber }}#</div>
+          <div class="col text-left">
+            <q-icon size="xs" name="img:/icon/XMLID.png" />
+          </div>
           <div class="col text-center">{{ order.price }} ر.س</div>
         </div>
-        <div class="row q-my-sm">
-          <div class="col q-mx-sm item-center">
+        <div class="row">
+          <div class="col item-center">
             <div class="row">
               <div class="col-3 text-center">
                 <img src="/icon/location.png" alt="" />
@@ -32,10 +34,16 @@
         </div>
         <div class="row">
           <div class="col text-right">
-            <q-btn class="btn-style" color="primary" label="قبول" />
+            <q-btn
+              @click="$emit('rejectOrder', order.id)"
+              class="btn-style"
+              color="primary"
+              label="قبول"
+            />
           </div>
           <div class="col text-left">
             <q-btn
+              @click="$emit('acceptOrder', order.id)"
               class="btn-style"
               label="رفض"
               outline
@@ -44,49 +52,34 @@
           </div>
         </div>
       </q-card-section>
+      <q-icon
+        @click="$emit('showMore', order.id)"
+        size="sm"
+        class="past-order__show-more"
+        name="eva-chevron-down-outline"
+      />
     </q-card>
   </div>
 </template>
 
 <script>
 export default {
-  setup() {
-    return {
-      orders: [
-        {
-          id: 1,
-          orderNumber: 2345684,
-          price: 400,
-          place: "الرياض",
-          date: "29 / 8 / 2022", //new Date()
-        },
-        {
-          id: 1,
-          orderNumber: 2345684,
-          price: 400,
-          place: "الرياض",
-          date: "29 / 8 / 2022", //new Date()
-        },
-        {
-          id: 1,
-          orderNumber: 2345684,
-          price: 400,
-          place: "الرياض",
-          date: "29 / 8 / 2022", //new Date()
-        },
-      ],
-    };
-  },
+  props: ["orders"],
 };
 </script>
 
 <style lang="scss" scoped>
+.past-order {
+  &__show-more {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+  }
+}
 .btn-style {
   width: 95%;
   border-radius: 10px;
-  // gap: 10px;
-  justify-content: center;
   align-items: center;
-  padding: 13px 20px;
+  padding: 7px 20px;
 }
 </style>

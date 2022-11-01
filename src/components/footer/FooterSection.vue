@@ -26,8 +26,9 @@
         </q-item>
 
         <q-item
+          to="/product"
           :class="
-            this.$route.path == '/products' ? 'footer-section__active' : ''
+            this.$route.path == '/product' ? 'footer-section__active' : ''
           "
           class="col text-grey text-primary column"
         >
@@ -35,14 +36,14 @@
             class="q-mx-auto"
             size="sm"
             :name="
-              this.$route.path == 'products'
+              this.$route.path == '/procuct'
                 ? 'img:icon/product-avtive.png'
                 : 'img:icon/product.png'
             "
           />
 
           <div
-            v-if="this.$route.path == '/favorts'"
+            v-if="this.$route.path == '/product'"
             class="text-center text-links"
           >
             المنتجات

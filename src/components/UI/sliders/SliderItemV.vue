@@ -9,6 +9,7 @@
         <!-- product image -->
         <!-- ///////////// -->
         <img
+          @click="$emit('showItem', product)"
           class="col-3 slider-v__img"
           :src="product.img"
           style="border-radius: 8px"
@@ -18,14 +19,22 @@
         <!-- /////////////////////// -->
         <q-card-section class="slider-v__content col-9">
           <div class="row">
-            <div class="col text-right slider-v__content--hint">
+            <div
+              @click="$emit('showItem', product)"
+              class="col text-right slider-v__content--hint"
+            >
               {{ product.title }}
             </div>
             <div class="col text-left slider-v__content--price text-bold">
               {{ product.price }} ر.س
             </div>
           </div>
-          <div class="slider-v__content--views">{{ product.disc }},</div>
+          <div
+            @click="$emit('showItem', product)"
+            class="slider-v__content--views"
+          >
+            {{ product.disc }},
+          </div>
         </q-card-section>
       </q-card-section>
       <q-separator
@@ -49,7 +58,7 @@ export default {
 <style lang="scss" scoped>
 .slider-v {
   position: relative;
-  margin: 0 20px;
+  margin: 0 10px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -90,11 +99,5 @@ export default {
     max-width: 100%;
     margin: auto;
   }
-  // &__add-to-card {
-  //   direction: ltr;
-  //   position: absolute;
-  //   bottom: 4px;
-  //   left: 85%;
-  // }
 }
 </style>

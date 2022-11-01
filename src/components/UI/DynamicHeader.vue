@@ -40,7 +40,10 @@
     <!-- ////////// -->
     <!-- logo image -->
     <!-- ////////// -->
-    <div class="col-6 main-nav__logo"><img src="logo.png" /></div>
+    <div class="col-6 main-nav__logo">
+      <img v-if="title === null" src="logo.png" />
+      <div class="text-h4 text-500">{{ title }}</div>
+    </div>
     <div class="col-3 text-left">
       <!-- ////////// -->
       <!-- search icon -->
@@ -65,6 +68,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    title: {
+      type: String,
+      default: null,
+    },
   },
 };
 </script>
@@ -76,9 +83,11 @@ export default {
   &__logo {
     max-width: 100%;
     max-height: 100%;
-    zoom: 40%;
     margin: auto;
     text-align: center;
+    img {
+      zoom: 40%;
+    }
   }
 }
 .edit-badge {

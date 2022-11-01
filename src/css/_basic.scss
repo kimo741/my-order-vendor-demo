@@ -219,11 +219,85 @@ small,
     bottom: -40px;
   }
 
-  .q-btn {}
 }
 
 /////////////////////////////////////////////
 /////////////////////////////////////////////
 .text-hint {
   color: $font-hint;
+}
+
+// slider components
+.vertical-list {
+  position: relative;
+  margin: 0 10px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: scroll;
+  scroll-padding: 100%;
+  scroll-snap-type: y mandatory;
+  height: max-content;
+  padding: 4px;
+
+  .my-card {
+    padding: 0 15px;
+    border-radius: 8px;
+    flex: 0 0 100%;
+    display: inline-block;
+
+    // height: 20px !important;
+    // margin-bottom: 5px;
+    .hint {
+      font-size: 14px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      // color: $font-hint;
+      font-weight: 500;
+    }
+
+    img {
+      height: 90%;
+      max-width: 100%;
+      margin: auto;
+    }
+  }
+}
+
+.vertical-list {
+  position: relative;
+  margin: 0 10px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: scroll;
+  scroll-padding: 100%;
+  scroll-snap-type: y mandatory;
+  height: max-content;
+  padding: 4px;
+
+  .my-card {
+    padding: 0 15px;
+    border-radius: 8px;
+    flex: 0 0 100%;
+    display: inline-block;
+
+    // height: 20px !important;
+    // margin-bottom: 5px;
+    .hint {
+      font-size: 14px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      // color: $font-hint;
+      font-weight: 500;
+    }
+
+    img {
+      height: 90%;
+      max-width: 100%;
+      margin: auto;
+    }
+  }
 }
