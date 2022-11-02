@@ -27,19 +27,19 @@ p {
 
 .text-h1 {
   margin-top: 0;
-  font-size: 1.802rem;
+  font-size: 1.2rem;
 }
 
 .text-h2 {
-  font-size: 1.602rem;
+  font-size: 1.1rem;
 }
 
 .text-h3 {
-  font-size: 1.424rem;
+  font-size: 1rem;
 }
 
 .text-h4 {
-  font-size: 1.266rem;
+  font-size: 0.266rem;
 }
 
 .text-h5 {
@@ -163,12 +163,16 @@ small,
   font-weight: 500;
 }
 
-// .no-wrap {
-//   overflow-wrap: normal;
-//   text-overflow: ellipsis;
-//   white-space: nowrap;
-//   overflow-x: auto;
-// }
+.text-no-wrap {
+  overflow: hidden;
+  overflow-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-shadow {
+  box-shadow: 0 1px 5px rgb(0 0 0 / 20%), 0 2px 2px rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%) !important;
+}
 
 /////////////////////////////////////////////
 // some edit in global component inside quaser
@@ -227,10 +231,10 @@ small,
   color: $font-hint;
 }
 
-// slider components
+
 .vertical-list {
   position: relative;
-  margin: 0 10px;
+  // margin: 0 10px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -245,52 +249,14 @@ small,
     border-radius: 8px;
     flex: 0 0 100%;
     display: inline-block;
+    margin: 5px 0;
 
-    // height: 20px !important;
-    // margin-bottom: 5px;
     .hint {
       font-size: 14px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-      // color: $font-hint;
-      font-weight: 500;
-    }
 
-    img {
-      height: 90%;
-      max-width: 100%;
-      margin: auto;
-    }
-  }
-}
-
-.vertical-list {
-  position: relative;
-  margin: 0 10px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  overflow-x: scroll;
-  scroll-padding: 100%;
-  scroll-snap-type: y mandatory;
-  height: max-content;
-  padding: 4px;
-
-  .my-card {
-    padding: 0 15px;
-    border-radius: 8px;
-    flex: 0 0 100%;
-    display: inline-block;
-
-    // height: 20px !important;
-    // margin-bottom: 5px;
-    .hint {
-      font-size: 14px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      // color: $font-hint;
       font-weight: 500;
     }
 

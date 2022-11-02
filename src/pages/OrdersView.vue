@@ -35,7 +35,10 @@
         style="background: #eeeeee !important"
         name="past"
       >
-        <curren-order />
+        <PastOrder
+          :pastOrders="past_orders"
+          @showMorePastOrder="showMorePastOrder"
+        />
       </q-tab-panel>
       <!-- current panel -->
       <q-tab-panel
@@ -43,11 +46,11 @@
         style="background: #eeeeee !important"
         name="current"
       >
-        <requist-order
+        <CurentOrder
           @acceptOrder="acceptOrder"
           @rejectOrder="rejectOrder"
           @showMore="showMoreInfo"
-          :orders="past_orders"
+          :orders="current_orders"
         />
       </q-tab-panel>
     </q-tab-panels>
@@ -56,16 +59,23 @@
 
 <script>
 import { ref } from "vue";
-import RequistOrder from "src/components/orders/RequistOrder.vue";
+import CurentOrder from "src/components/orders/CurentOrder.vue";
 import DynamicHeader from "src/components/UI/DynamicHeader.vue";
 import MainSearchBar from "src/components/UI/search/mainSearchBar.vue";
-import CurrenOrder from "./UI/currenOrder.vue";
+import PastOrder from "src/components/orders/PastOrder.vue";
+
 export default {
-  components: { RequistOrder, DynamicHeader, MainSearchBar, CurrenOrder },
+  components: {
+    CurentOrder,
+    DynamicHeader,
+    MainSearchBar,
+    CurentOrder,
+    PastOrder,
+  },
   setup() {
     return {
       tab: ref("past"),
-      past_orders: ref([
+      current_orders: ref([
         {
           id: 1,
           orderNumber: 2345684,
@@ -88,12 +98,55 @@ export default {
           date: "29/8/2022",
         },
       ]),
+      past_orders: ref([
+        {
+          id: "1",
+          order_compleat: true,
+          oreder_num: "2345346346",
+          location: "الرياض",
+          date: "25/5/2022",
+          time: "09:00 PM",
+        },
+        {
+          id: "2",
+          order_compleat: false,
+          oreder_num: "234534634",
+          location: "القاهره",
+          date: "25/5/2022",
+          time: "09:00 PM",
+        },
+        {
+          id: "3",
+          order_compleat: true,
+          oreder_num: "23452352",
+          location: "الدمام",
+          date: "25/5/2022",
+          time: "09:00 PM",
+        },
+        {
+          id: "4",
+          order_compleat: false,
+          oreder_num: "235346346",
+          location: "الرياض",
+          date: "25/5/2022",
+          time: "09:00 PM",
+        },
+        {
+          id: "5",
+          order_compleat: false,
+          oreder_num: "21312312313333333333333323123123123123",
+          location: "الرياض",
+          date: "25/5/2022",
+          time: "09:00 PM",
+        },
+      ]),
     };
   },
   methods: {
     acceptOrder(id) {},
     rejectOrder(id) {},
     showMoreInfo(id) {},
+    showMorePastOrder(id) {},
   },
 };
 </script>

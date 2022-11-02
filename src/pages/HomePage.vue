@@ -4,6 +4,7 @@
     <!-- ///////////// -->
     <!-- header navbar -->
     <!-- ///////////// -->
+
     <DynamicHeader />
     <!-- ///////////////////// -->
     <!-- input for main search -->
@@ -12,6 +13,11 @@
     <!-- /////////////// -->
     <!-- Analytics Order -->
     <!-- /////////////// -->
+    <TitleBarWithDropdown
+      @showAll="showAllAnalytics"
+      label_title="عدد الطلبات الوارده  "
+      @passSorting="selectedDataTimeAnalytic"
+    />
     <AnalyticsOrder
       @passSorting="sellectedSort"
       label_title="عدد الطلبات الوارده اليوم"
@@ -268,14 +274,20 @@ export default {
       // see all curent orders
     },
     showAllChart() {
-      this.$router.push("/gain-chart");
+      this.$router.push({ name: "gain-chart" });
       // see all charts
     },
     selectedDataTimeChart(selected) {
       // selected charts
     },
+    selectedDataTimeAnalytic(selected) {
+      // selected charts
+    },
     showAllTopProduct() {
-      this.$router.push("top-products");
+      this.$router.push({ name: "top-products" });
+    },
+    showAllAnalytics() {
+      // this.$router.push();
     },
   },
 };

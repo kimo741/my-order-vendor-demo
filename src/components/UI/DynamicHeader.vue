@@ -40,10 +40,10 @@
     <!-- ////////// -->
     <!-- logo image -->
     <!-- ////////// -->
-    <div class="col-6 main-nav__logo">
-      <img v-if="title === null" src="logo.png" />
-      <div class="text-h4 text-500">{{ title }}</div>
+    <div v-if="title === null" class="col-6 main-nav__logo">
+      <img src="logo.png" />
     </div>
+    <div v-else class="text-h1 text-500 q-ma-auto">{{ title }}</div>
     <div class="col-3 text-left">
       <!-- ////////// -->
       <!-- search icon -->
@@ -85,8 +85,8 @@ export default {
     max-height: 100%;
     margin: auto;
     text-align: center;
+    zoom: 40%;
     img {
-      zoom: 40%;
     }
   }
 }

@@ -58,7 +58,7 @@ export default {
 <style lang="scss" scoped>
 .slider-v {
   position: relative;
-  margin: 0 10px;
+  // margin: 0 10px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
