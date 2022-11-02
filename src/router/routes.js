@@ -1,6 +1,12 @@
+import HomeLayout from 'src/layouts/childes/HomeLayout.vue'
+import OrderLayout from 'src/layouts/childes/OrderLayout.vue'
+import ProductLayout from 'src/layouts/childes/ProductLayout.vue'
+import ProfileLayout from 'src/layouts/childes/ProfileLayout.vue'
+
+// /////////////////////////////////////////////////
 import OrdersPage from "src/pages/OrdersView.vue"
 import GainChart from "src/pages/chart/ChartAllGain.vue"
-import TopProduct from "src/pages/UI/TopOrders.vue"
+import TopProduct from "src/components/UI/Dashboard/TopOrders.vue"
 import ProductPage from 'src/pages/ProductPage'
 
 const routes = [
@@ -8,26 +14,66 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '',
-       component: () => import('pages/HomePage.vue')
-       },
-      ///////////////////////////////////////////////
-      { path: '/order',
-       component: OrdersPage,
-        name:"orders"
+    //////////////////////////
+    ////// home container/////
+    //////////////////////////
+      { path: '/',
+        component: HomeLayout,
+        name:"dashboard",
+        children:[
+          {
+            path: '',
+            component: () => import('pages/HomePage.vue')
+          },
+          {
+            path: 'top-products',
+            component: TopProduct,
+            name:"top-products"
+          },
+          {
+            path: 'gain-chart',
+            component: GainChart,
+            name:"gain-chart"
+          },
+        ]
       },
-      { path: '/gain-chart',
-       component: GainChart,
-        name:"gain-chart"
+    ///////////////////////////
+    ////// order container/////
+    ///////////////////////////
+      {
+        path: '/order',
+        component: OrderLayout,
+        name:"order",
+        children:[
+          {
+            path: '',
+            component: OrdersPage,
+            name:"orders"
+          }
+        ]
       },
-      { path: '/top-products',
-       component: TopProduct,
-        name:"top-products"
-      },
-      { path: '/product',
-       component: ProductPage,
-        name:"procuct"
-      },
+    /////////////////////////////
+    ////// product container/////
+    ////////////////////////////
+    {
+      path: '/products',
+      component: ProductLayout,
+      name:"products",
+      children:[
+          {
+            path: '',
+            component: ProductPage,
+          },
+      ]
+    },
+    /////////////////////////////
+    ////// profile container/////
+    /////////////////////////////
+    {
+      path: '/profile',
+      component: ProfileLayout,
+      name:"profile",
+    },
     ]
   },
 

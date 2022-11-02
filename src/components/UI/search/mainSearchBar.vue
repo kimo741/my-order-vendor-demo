@@ -5,11 +5,10 @@
   <q-input
     dir="rtl"
     class="main-rounded q-mx-auto q-mt-lg"
-    style="width: 90%"
-    flat
+    style="width: 100%"
     bottom-slots
     v-model="global_search"
-    bg-color="grey-4"
+    bg-color="white"
     dense
     rounded
     filled

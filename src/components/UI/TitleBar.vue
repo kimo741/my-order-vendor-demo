@@ -5,6 +5,7 @@
     </div>
     <div class="col text-body2 text-left">
       <q-btn
+        v-if="showBtn"
         @click="$emit('showAll')"
         size="sm"
         label="مشاهدةالكل"
@@ -21,6 +22,11 @@ export default {
     label: {
       type: String,
       require: true,
+    },
+    showBtn: {
+      type: Boolean,
+      require: false,
+      default: true,
     },
   },
 };

@@ -4,7 +4,7 @@
       <q-list class="col-5 row">
         <q-item
           :class="
-            this.$route.path == '/profile' ? 'footer-section__active' : ''
+            /profile/.test(this.$route.path) ? 'footer-section__active' : ''
           "
           class="col text-grey text-primary column"
         >
@@ -12,13 +12,13 @@
             class="q-mx-auto"
             size="sm"
             :name="
-              this.$route.path == '/profile'
+              /profile/.test(this.$route.path)
                 ? 'img:icon/person-footer-active.png'
                 : 'img:icon/person-footer.png'
             "
           />
           <div
-            v-if="this.$route.path == 'profile'"
+            v-if="/profile/.test(this.$route.path)"
             class="text-center text-links"
           >
             ملفي
@@ -26,9 +26,9 @@
         </q-item>
 
         <q-item
-          to="/product"
+          to="/products"
           :class="
-            this.$route.path == '/product' ? 'footer-section__active' : ''
+            /products/.test(this.$route.path) ? 'footer-section__active' : ''
           "
           class="col text-grey text-primary column"
         >
@@ -36,14 +36,14 @@
             class="q-mx-auto"
             size="sm"
             :name="
-              this.$route.path == '/procuct'
-                ? 'img:icon/product-avtive.png'
+              /products/.test(this.$route.path)
+                ? 'img:icon/product-active.png'
                 : 'img:icon/product.png'
             "
           />
 
           <div
-            v-if="this.$route.path == '/product'"
+            v-if="/products/.test(this.$route.path)"
             class="text-center text-links"
           >
             المنتجات
@@ -52,7 +52,9 @@
       </q-list>
       <q-list class="col-5 row">
         <q-item
-          :class="this.$route.path == '/order' ? 'footer-section__active' : ''"
+          :class="
+            /order/.test(this.$route.path) ? 'footer-section__active' : ''
+          "
           to="/order"
           class="col text-grey text-primary column"
         >
@@ -60,13 +62,13 @@
             class="q-mx-auto"
             size="sm"
             :name="
-              this.$route.path == '/order'
+              /order/.test(this.$route.path)
                 ? 'img:icon/orders-active.png'
                 : 'img:icon/orders.png'
             "
           />
           <div
-            v-if="this.$route.path == '/order'"
+            v-if="/order/.test(this.$route.path)"
             class="text-center text-links"
           >
             الطلبات
@@ -87,6 +89,7 @@
                 : 'img:icon/Home.png'
             "
           />
+          <!-- v-if="this.$route.path.test == '/dashboard'" -->
           <div v-if="this.$route.path == '/'" class="text-center text-links">
             الرئيسة
           </div></q-item
@@ -106,7 +109,7 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$route.path);
+    console.log(this.$route);
   },
 };
 </script>
