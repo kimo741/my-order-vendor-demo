@@ -51,7 +51,7 @@
         </div>
       </q-card-section>
       <q-icon
-        @click="$emit('showMore', order.id)"
+        @click="$emit('showMore', order)"
         size="sm"
         class="past-order__show-more"
         name="eva-chevron-down-outline"

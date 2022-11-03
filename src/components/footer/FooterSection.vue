@@ -108,9 +108,6 @@ export default {
       active_footer: ref(""),
     };
   },
-  mounted() {
-    console.log(this.$route);
-  },
 };
 </script>
 

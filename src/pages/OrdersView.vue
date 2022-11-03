@@ -69,7 +69,6 @@ export default {
     CurentOrder,
     DynamicHeader,
     MainSearchBar,
-    CurentOrder,
     PastOrder,
   },
   setup() {
@@ -82,6 +81,7 @@ export default {
           price: 400,
           place: "الرياض",
           date: "29/8/2022",
+          status_code: 1,
         },
         {
           id: 1,
@@ -89,6 +89,7 @@ export default {
           price: 400,
           place: "الرياض",
           date: "29/8/2022",
+          status_code: 3,
         },
         {
           id: 1,
@@ -96,6 +97,7 @@ export default {
           price: 400,
           place: "الرياض",
           date: "29/8/2022",
+          status_code: 2,
         },
       ]),
       past_orders: ref([
@@ -106,6 +108,7 @@ export default {
           location: "الرياض",
           date: "25/5/2022",
           time: "09:00 PM",
+          status_code: 5,
         },
         {
           id: "2",
@@ -114,6 +117,7 @@ export default {
           location: "القاهره",
           date: "25/5/2022",
           time: "09:00 PM",
+          status_code: 5,
         },
         {
           id: "3",
@@ -122,6 +126,7 @@ export default {
           location: "الدمام",
           date: "25/5/2022",
           time: "09:00 PM",
+          status_code: 5,
         },
         {
           id: "4",
@@ -130,14 +135,16 @@ export default {
           location: "الرياض",
           date: "25/5/2022",
           time: "09:00 PM",
+          status_code: 5,
         },
         {
           id: "5",
           order_compleat: false,
-          oreder_num: "21312312313333333333333323123123123123",
+          oreder_num: "213123123",
           location: "الرياض",
           date: "25/5/2022",
           time: "09:00 PM",
+          status_code: 5,
         },
       ]),
     };
@@ -145,8 +152,26 @@ export default {
   methods: {
     acceptOrder(id) {},
     rejectOrder(id) {},
-    showMoreInfo(id) {},
-    showMorePastOrder(id) {},
+    showMoreInfo(order) {
+      this.$router.push({
+        name: "sapcific",
+        params: {
+          id: order.id,
+          code: order.status_code,
+        },
+      });
+      // console.log(order);
+    },
+    showMorePastOrder(order) {
+      this.$router.push({
+        name: "sapcific",
+        params: {
+          id: order.id,
+          code: order.status_code,
+        },
+      });
+      // console.log(order);
+    },
   },
 };
 </script>

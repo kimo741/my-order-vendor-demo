@@ -41,7 +41,7 @@
           </div>
           <div class="col-6 text-left">
             <q-icon
-              @click="$emit('showMorePastOrder', order.id)"
+              @click="$emit('showMorePastOrder', order)"
               size="sm"
               name="eva-chevron-down-outline"
             />

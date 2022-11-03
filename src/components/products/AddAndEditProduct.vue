@@ -4,8 +4,8 @@
       <!-- //////// -->
       <!-- meal name -->
       <q-label class="q-my-md text-weight-bold">اسم الوجبة</q-label>
-      <div class="q-mb-md ">
-        <q-input class="input" outlined v-model="text" :dense="dense" />
+      <div class="q-mb-md">
+        <q-input class="input" outlined v-model="text" />
       </div>
 
       <!-- //////// -->
@@ -13,11 +13,11 @@
 
       <q-label class="text-weight-bold"> الفئة</q-label>
       <div dir="ltr" class="q-mb-md">
-        <q-input dir="rtl"
+        <q-input
+          dir="rtl"
           class="input"
           v-model="text"
           outlined
-          :dense="dense"
           placeholder="مطعم"
         >
           <template v-slot:prepend>
@@ -31,11 +31,11 @@
 
       <q-label class="text-weight-bold"> الفئة الفرعية</q-label>
       <div dir="ltr" class="q-mb-md">
-        <q-input dir="rtl"
+        <q-input
+          dir="rtl"
           class="input"
           v-model="text"
           outlined
-          :dense="dense"
           placeholder="مطعم"
         >
           <template v-slot:prepend>
@@ -47,13 +47,13 @@
       <!-- //////// -->
       <!-- meal additions -->
       <q-label class="text-weight-bold"> اضافات</q-label>
-      <div dir="ltr" class="q-mb-md" >
-        <q-input dir="rtl"
+      <div dir="ltr" class="q-mb-md">
+        <q-input
+          dir="rtl"
           class="input"
           type="textarea"
           v-model="text"
           outlined
-          :dense="dense"
           placeholder="اضافة"
         >
           <template v-slot:prepend>
@@ -67,12 +67,12 @@
       <!-- meal description -->
       <q-label class="text-weight-bold"> الوصف</q-label>
       <div dir="rtl" class="q-mb-md">
-        <q-input dir="rtl"
+        <q-input
+          dir="rtl"
           class="input"
           type="textarea"
           v-model="text"
           outlined
-          :dense="dense"
           placeholder="وصف الاضافة"
         >
         </q-input>
@@ -84,7 +84,7 @@
       <div dir="rtl" class="q-mb-md">
         <q-input type="file" class="input" outlined>
           <div class="col-6 q-mt-md">
-            <p class="q-ml-md  text-grey-9">Drag & Drop</p>
+            <p class="q-ml-md text-grey-9">Drag & Drop</p>
           </div>
           <div class="col-6 text-right q-mt-sm">
             <img src="icon/downlod.png" />
@@ -105,7 +105,6 @@
             style="width: 95%"
             v-model="text"
             outlined
-            :dense="dense"
             type="number"
           />
         </div>
@@ -115,7 +114,6 @@
             style="width: 99%"
             outlined
             v-model="text"
-            :dense="dense"
             type="number"
           />
         </div>
@@ -125,7 +123,7 @@
       <!-- meal discount -->
       <q-label class="q-mt-lg text-weight-bold"> كود الخصم</q-label>
       <div class="q-mb-md">
-        <q-input class="input" outlined v-model="text" :dense="dense" />
+        <q-input class="input" outlined v-model="text" />
       </div>
 
       <div class="row">
@@ -141,7 +139,6 @@
               style="width: 99%"
               v-model="text"
               outlined
-              :dense="dense"
               placeholder="اسبوع "
             >
               <template v-slot:prepend>
@@ -189,5 +186,4 @@ export default {};
 </script>
 
 <style>
-
 </style>

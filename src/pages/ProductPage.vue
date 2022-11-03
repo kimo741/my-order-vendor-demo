@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import AddAndEditProduct from "src/pages/products/AddAndEditProduct.vue";
+import AddAndEditProduct from "src/components/products/AddAndEditProduct.vue";
 export default {
   components: { AddAndEditProduct },
 };
