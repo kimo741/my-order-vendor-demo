@@ -88,8 +88,8 @@ small,
 }
 
 *::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 0;
+  height: 0;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -238,7 +238,7 @@ small,
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  overflow-x: scroll;
+  overflow-y: scroll;
   scroll-padding: 100%;
   scroll-snap-type: y mandatory;
   height: max-content;
@@ -246,10 +246,47 @@ small,
 
   .my-card {
     padding: 0 15px;
-    border-radius: 8px;
+    border-radius: 10px;
     flex: 0 0 100%;
     display: inline-block;
     margin: 5px 0;
+
+    .hint {
+      font-size: 14px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      font-weight: 500;
+    }
+
+    img {
+      height: 90%;
+      max-width: 100%;
+      margin: auto;
+    }
+  }
+}
+
+.horizental-list {
+  position: relative;
+  // margin: 0 10px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  // scroll-padding: 100%;
+  scroll-snap-type: x mandatory;
+  height: max-content;
+  padding: 4px;
+
+  .my-card {
+    padding: 0 15px;
+    border-radius: 10px;
+    flex: 0 0 max-content;
+    display: inline-block;
+    margin: 5px 0;
+    white-space: nowrap;
 
     .hint {
       font-size: 14px;
@@ -274,4 +311,22 @@ small,
   border: 0.5px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   /* text-align: left !important; */
+}
+
+// hide scroll bar
+.show-scroll-bar {
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(to top, transparent, $primary, transparent);
+    border-radius: 14px;
+    // border: 5px solid $primary;
+  }
+}
+
+.text-sm {
+  font-size: 12px;
 }

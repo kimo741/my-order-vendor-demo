@@ -69,7 +69,7 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  margin: 10px auto 20px;
+  margin: 10px auto 30px;
   height: 30px;
   align-items: center;
   &__posint {

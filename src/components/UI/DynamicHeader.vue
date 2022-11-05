@@ -49,6 +49,7 @@
       <!-- search icon -->
       <!-- /////////// -->
       <q-btn v-if="searchIcon" flat size="md" icon="img:/icon/Search.png" />
+      <q-btn v-if="addIcon" color="primary" flat size="md" icon="add" />
     </div>
   </div>
 </template>
@@ -65,6 +66,10 @@ export default {
       default: false,
     },
     searchIcon: {
+      type: Boolean,
+      default: false,
+    },
+    addIcon: {
       type: Boolean,
       default: false,
     },
