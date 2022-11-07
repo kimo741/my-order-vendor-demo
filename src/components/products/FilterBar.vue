@@ -3,11 +3,11 @@
     <div
       v-for="(item, i) in taps"
       :key="i"
-      class="my-card text-sm text-hint"
-      :class="tap_active == item ? 'active' : ''"
+      class="my-card text-sm text-hint text-center"
+      :class="tap_active == item.label ? 'active' : ''"
       @click="sellectTap(item)"
     >
-      {{ item }}
+      {{ item.label }}
     </div>
   </div>
 </template>
@@ -18,12 +18,33 @@ export default {
   setup() {
     return {
       tap_active: ref("الكل"),
-      taps: ref(["الكل", "وجبات سريعه", "مقبلات", "سندوتشات", "مشروبات"]),
+      taps: ref([
+        {
+          label: "الكل",
+          value: "all",
+        },
+        {
+          label: "وجبات سريعه",
+          value: "fastfood",
+        },
+        {
+          label: "مقبلات",
+          value: "snaks",
+        },
+        {
+          label: "سندوتشات",
+          value: "sandwitch",
+        },
+        {
+          label: "مشروبات",
+          value: "deinks",
+        },
+      ]),
     };
   },
   methods: {
     sellectTap(item) {
-      this.tap_active = item;
+      this.tap_active = item.label;
     },
   },
 };

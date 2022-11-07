@@ -9,6 +9,7 @@ import GainChart from "src/pages/chart/ChartAllGain.vue"
 import TopProduct from "src/components/UI/Dashboard/TopOrders.vue"
 import ProductPage from 'src/pages/ProductPage'
 import SpacificOrder from 'src/components/orders/SpacificOrder.vue'
+import AddAndEditProduct from 'src/components/products/AddAndEditProduct.vue'
 
 const routes = [
   {
@@ -70,6 +71,10 @@ const routes = [
           {
             path: '',
             component: ProductPage,
+          },
+          {
+            path: 'add&eedit',
+            component: AddAndEditProduct,
           },
       ]
     },

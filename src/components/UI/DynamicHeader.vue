@@ -17,6 +17,7 @@
         <!-- notfication icon -->
         <!-- //////////////// -->
         <q-btn
+          v-if="notifyIcon"
           class="col text-right"
           icon="img:icon\notfication.png"
           align="left"
@@ -60,6 +61,10 @@ export default {
     backIcon: {
       type: Boolean,
       default: false,
+    },
+    notifyIcon: {
+      type: Boolean,
+      default: true,
     },
     nofiBdge: {
       type: Boolean,
