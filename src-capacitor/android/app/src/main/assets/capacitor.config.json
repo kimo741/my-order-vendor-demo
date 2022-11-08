@@ -1,0 +1,7 @@
+{
+  "appId": "MyOrder",
+  "appName": "MyOrder",
+  "bundledWebRuntime": false,
+  "npmClient": "[object Object]",
+  "webDir": "www"
+}

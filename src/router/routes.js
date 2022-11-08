@@ -1,31 +1,43 @@
+/////////////////////////////////////////////////////
+//////////////////// layouts ////////////////////////
+/////////////////////////////////////////////////////
 import HomeLayout from 'src/layouts/childes/HomeLayout.vue'
 import OrderLayout from 'src/layouts/childes/OrderLayout.vue'
 import ProductLayout from 'src/layouts/childes/ProductLayout.vue'
 import ProfileLayout from 'src/layouts/childes/ProfileLayout.vue'
-
-// /////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+//////////////////// pages //////////////////////////
+/////////////////////////////////////////////////////
 import OrdersPage from "src/pages/OrdersView.vue"
+import ProductPage from 'src/pages/ProductPage'
+import ProfilePage from 'src/pages/ProfilePage.vue'
+import HomePage from 'src/pages/HomePage.vue'
+//////////////////////////////////////////////////////
+//////////////////// children ////////////////////////
+/////////////////////////////////////////////////////
 import GainChart from "src/pages/chart/ChartAllGain.vue"
 import TopProduct from "src/components/UI/Dashboard/TopOrders.vue"
-import ProductPage from 'src/pages/ProductPage'
 import SpacificOrder from 'src/components/orders/SpacificOrder.vue'
 import AddAndEditProduct from 'src/components/products/AddAndEditProduct.vue'
+/////////////////////////////////////////////////////
+//////////////////// routs //////////////////////////
+/////////////////////////////////////////////////////
 
 const routes = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-    //////////////////////////
-    ////// home container/////
-    //////////////////////////
+    /////////////////////////////////////////////////
+    //////////////// home container /////////////////
+    /////////////////////////////////////////////////
       { path: '/',
         component: HomeLayout,
         name:"dashboard",
         children:[
           {
             path: '',
-            component: () => import('pages/HomePage.vue')
+            component:HomePage,
           },
           {
             path: 'top-products',
@@ -73,7 +85,7 @@ const routes = [
             component: ProductPage,
           },
           {
-            path: 'add&eedit',
+            path: 'add&edit',
             component: AddAndEditProduct,
           },
       ]
@@ -85,6 +97,12 @@ const routes = [
       path: '/profile',
       component: ProfileLayout,
       name:"profile",
+      children:[
+        {
+          path:"",
+          component:ProfilePage,
+        }
+      ]
     },
     ]
   },

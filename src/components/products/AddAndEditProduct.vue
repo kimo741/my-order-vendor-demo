@@ -1,13 +1,39 @@
 <template>
-  <DynamicHeader :addIcon="false" :backIcon="true" :nofiBdge="false" />
   <q-page class="q-mx-sm" dir="rtl">
-    <q-form class="q-mx-sm">
+    <DynamicHeader
+      :addIcon="false"
+      :backIcon="true"
+      :notifyIcon="false"
+      :title="editData === null ? 'اضافة منتج' : 'تعديل'"
+    />
+    <q-form @submit.prevent="saveProduct" class="q-ma-sm">
+      <div v-if="editData !== null" class="row">
+        <q-radio
+          class="col"
+          v-model="product_form.status"
+          :val="true"
+          label="متوفر"
+        />
+        <q-radio
+          class="col"
+          v-model="product_form.status"
+          :val="false"
+          label="غير متوفر"
+        />
+      </div>
       <!-- ///////// -->
       <!-- meal name -->
       <!-- ///////// -->
       <q-label class="q-my-md text-weight-bold">اسم الوجبة</q-label>
       <div class="q-mb-md">
-        <q-input dense rounded filled class="input" outlined v-model="text" />
+        <q-input
+          dense
+          rounded
+          filled
+          class="input"
+          outlined
+          v-model="product_form.name"
+        />
       </div>
 
       <!-- ///////////// -->
@@ -22,7 +48,7 @@
           dense
           rounded
           filled
-          v-model="category"
+          v-model="product_form.category"
           outlined
           placeholder="مطعم"
         />
@@ -36,7 +62,7 @@
           :options="options"
           dir="rtl"
           class="input"
-          v-model="sub_category"
+          v-model="product_form.sup_categoty"
           dense
           rounded
           filled
@@ -54,17 +80,17 @@
           dir="rtl"
           class="input"
           type="textarea"
-          v-model="text"
+          v-model="product_form.additions"
           dense
           rounded
           filled
           outlined
           placeholder="اضافة"
         >
-          <template v-slot:prepend>
+          <!-- <template v-slot:prepend>
             <q-icon name="eva-square-outline" color="grey-5" />
             <q-p class="text-caption"> ر.س 20</q-p>
-          </template>
+          </template> -->
         </q-input>
       </div>
 
@@ -77,7 +103,7 @@
           dir="rtl"
           class="input"
           type="textarea"
-          v-model="text"
+          v-model="product_form.disc"
           outlined
           dense
           rounded
@@ -92,10 +118,24 @@
       <!-- ////////// -->
       <q-label class="text-weight-bold"> صورة الوجبة</q-label>
       <div dir="rtl" class="q-mb-md">
-        <q-file color="dark" filled v-model="model">
-          <div class="row justify-center input-files items-center">
+        <q-file
+          color="dark"
+          filled
+          multiple
+          @change="changeImag"
+          v-model="product_form.img"
+        >
+          <div
+            v-if="!product_form.img || !product_form.img === ''"
+            class="row justify-center input-files items-center"
+          >
             <div class="text-body text-500 q-mx-md">Drag & Drop</div>
-            <q-icon size="md" name="img:icon/downlod.png" />
+            <q-icon
+              v-if="!product_form.img || !product_form.img === ''"
+              size="md"
+              name="img:icon/downlod.png"
+            />
+            <div v-else>{{ product_form.img }}</div>
           </div>
         </q-file>
       </div>
@@ -114,7 +154,7 @@
         <q-input
           class="input text-right"
           style="width: 45%"
-          v-model="text"
+          v-model="product_form.price"
           outlined
           dense
           rounded
@@ -132,7 +172,7 @@
           dense
           rounded
           filled
-          v-model="text"
+          v-model="product_form.price_sale"
           type="number"
         />
       </div>
@@ -142,7 +182,14 @@
       <!-- ///////////// -->
       <q-label class="q-mt-lg text-weight-bold"> كود الخصم</q-label>
       <div class="q-mb-md">
-        <q-input class="input" outlined dense rounded filled v-model="text" />
+        <q-input
+          class="input"
+          outlined
+          dense
+          rounded
+          filled
+          v-model="product_form.sale_code"
+        />
       </div>
       <!-- ///////////// -->
       <!-- slale timeout -->
@@ -155,32 +202,42 @@
       <div class="row text-right justify-between" dir="rtl">
         <div class="col text-right" dir="rtl">
           <div dir="ltr">
-            <q-input
+            <q-select
               class="input"
-              v-model="text"
+              v-model="product_form.sale_timeout"
               outlined
               dense
               rounded
+              :options="list_item"
               filled
               placeholder="اسبوع "
             >
-              <template v-slot:prepend>
-                <q-icon name="eva-chevron-down-outline" />
-              </template>
-            </q-input>
+            </q-select>
           </div>
         </div>
         <!-- /// -->
         <!-- fom -->
         <!-- /// -->
         <div class="col q-mx-md">
-          <q-input v-model="date" class="input" dense filled type="date" />
+          <q-input
+            v-model="product_form.sale_from"
+            class="input"
+            dense
+            filled
+            type="date"
+          />
         </div>
         <!-- // -->
         <!-- to -->
         <!-- // -->
         <div class="col">
-          <q-input class="input" v-model="date" dense filled type="date" />
+          <q-input
+            class="input"
+            v-model="product_form.sale_to"
+            dense
+            filled
+            type="date"
+          />
         </div>
       </div>
 
@@ -189,6 +246,7 @@
       <!-- /////////// -->
       <div class="col q-my-lg">
         <q-btn
+          type="s"
           class="btn-style text-weight-bold main-rounded"
           style="width: 100%; height: 48px"
           color="primary"
@@ -207,11 +265,92 @@ export default {
   components: { DynamicHeader },
   setup() {
     return {
-      category: ref(null),
-      sub_category: ref(null),
+      product_form: ref({
+        name: "",
+        disc: "",
+        category: "",
+        sup_categoty: "",
+        additions: "",
+        price: "",
+        price_sale: "",
+        status: true,
+        img: "",
+        sale_code: "",
+        sale_timeout: {
+          label: "اسبوعان",
+          code: "2w",
+        },
+        sale_from: "",
+        sale_to: "",
+      }),
       options: ["Google", "Facebook", "Twitter", "Apple", "Oracle"],
+      list_item: [
+        {
+          label: "اسبوعان",
+          code: "2w",
+        },
+        {
+          label: "شهر",
+          code: "1m",
+        },
+        {
+          label: "3 شهور",
+          code: "3m",
+        },
+        {
+          label: "6 شهور",
+          code: "6m",
+        },
+      ],
     };
   },
+  computed: {
+    editData: {
+      get() {
+        return this.$store.getters["Product/edit_data"];
+      },
+      set(val) {
+        this.$store.commit("Product/EDIT_PRODUCT", val);
+      },
+    },
+  },
+  methods: {
+    changeImag(event) {
+      const allwoedType = ["application/pdf", " application/vnd.ms-excel"];
+      const file = event.target.files[0];
+      if (allwoedType.indexOf(file.type) !== -1) {
+        var imgData = new FileReader();
+        imgData.readAsDataURL(file);
+        imgData.onload = (e) => {
+          this.src = e.target.result;
+          this.$emit("uploadFile", file);
+        };
+      } else {
+        this.$q.notify({
+          message: `لا يمكن تحميل ملف بصيغة  ${file.type}  `,
+          color: "red",
+          icon: "error",
+        });
+      }
+    },
+    handelEditData() {
+      if (this.editData !== null) {
+        this.product_form = Object.assign({}, this.editData);
+      }
+    },
+    saveProduct() {
+      // if (this.editData != null) {
+      //   return (this.product_form = this.editData);
+      // }
+    },
+  },
+  mounted() {
+    this.handelEditData();
+    console.log(this.editData);
+  },
+  // unmounted() {
+  //   this.$store.commit("Product/EDIT_PRODUCT", null);
+  // },
 };
 </script>
 

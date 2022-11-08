@@ -3,6 +3,7 @@
     <div class="footer-section full-width row justify-between">
       <q-list class="col-5 row">
         <q-item
+          to="/profile"
           :class="
             /profile/.test(this.$route.path) ? 'footer-section__active' : ''
           "

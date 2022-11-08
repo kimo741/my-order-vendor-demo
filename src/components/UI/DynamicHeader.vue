@@ -41,7 +41,11 @@
     <!-- ////////// -->
     <!-- logo image -->
     <!-- ////////// -->
-    <div v-if="title === null" class="col-6 main-nav__logo">
+    <div
+      @click="this.$router.push('/')"
+      v-if="title === null"
+      class="col-6 main-nav__logo"
+    >
       <img src="logo.png" />
     </div>
     <div v-else class="text-h1 text-500 q-ma-auto">{{ title }}</div>
@@ -49,8 +53,29 @@
       <!-- ////////// -->
       <!-- search icon -->
       <!-- /////////// -->
-      <q-btn v-if="searchIcon" flat size="md" icon="img:/icon/Search.png" />
-      <q-btn v-if="addIcon" color="primary" flat size="md" icon="add" />
+      <q-btn
+        v-if="searchIcon"
+        @click="$emit('emitSearch')"
+        flat
+        size="md"
+        icon="img:/icon/Search.png"
+      />
+      <q-btn
+        v-if="addIcon"
+        @click="$emit('emitAdd')"
+        color="primary"
+        flat
+        size="md"
+        icon="add"
+      />
+      <q-btn
+        v-if="setingIcon"
+        @click="$emit('emitSetting')"
+        color="primary"
+        flat
+        size="md"
+        icon="img:icon/setting.png"
+      />
     </div>
   </div>
 </template>
@@ -65,6 +90,10 @@ export default {
     notifyIcon: {
       type: Boolean,
       default: true,
+    },
+    setingIcon: {
+      type: Boolean,
+      default: false,
     },
     nofiBdge: {
       type: Boolean,
