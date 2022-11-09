@@ -1,9 +1,10 @@
 <template>
   <div class="profile-info row" dir="rtl">
     <div class="col-3">
-      <div class="profile-info__img">
-        <img src="test/2.png" />
-      </div>
+      <!-- ////////////////// -->
+      <!-- user profile image -->
+      <!-- ////////////////// -->
+      <UserImage imgSrc="test/2.png" />
       <div class="text-center text-500" style="width: 75px">اسم البائع</div>
       <div class="text-center" style="width: 75px">
         <q-rating
@@ -41,7 +42,9 @@
 </template>
 
 <script>
+import UserImage from "../UI/UserImage.vue";
 export default {
+  components: { UserImage },
   data() {
     return {
       ratingModel: "3",

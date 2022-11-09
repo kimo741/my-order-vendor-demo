@@ -97,7 +97,14 @@
         >
       </q-list>
     </div>
-    <q-btn round size="lg" color="primary" icon="eva-plus" class="add-button" />
+    <q-btn
+      @click="$emit('createPost')"
+      round
+      size="lg"
+      color="primary"
+      icon="eva-plus"
+      class="add-button"
+    />
   </transition-group>
 </template>
 

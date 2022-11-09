@@ -209,7 +209,7 @@ small,
 }
 
 .popUp-story .q-dialog__inner--minimized {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .offer-carousel {
@@ -341,7 +341,13 @@ input {
 }
 
 .q-field__native {
+  direction: rtl !important
+}
+
+.q-field__label {
   direction: rtl !important;
+  right: 0;
+  left: auto;
 }
 
 /* Chrome, Safari, Edge, Opera */

@@ -5,6 +5,7 @@ import HomeLayout from 'src/layouts/childes/HomeLayout.vue'
 import OrderLayout from 'src/layouts/childes/OrderLayout.vue'
 import ProductLayout from 'src/layouts/childes/ProductLayout.vue'
 import ProfileLayout from 'src/layouts/childes/ProfileLayout.vue'
+// import CheatePost from 'src/pages/CreatePost.vue'
 /////////////////////////////////////////////////////
 //////////////////// pages //////////////////////////
 /////////////////////////////////////////////////////

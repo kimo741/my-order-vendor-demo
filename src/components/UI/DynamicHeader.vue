@@ -36,6 +36,15 @@
             floating
           />
         </q-btn>
+        <!-- <q-btn
+          v-if="post"
+          dense
+          style="width: 110px; padding: 3px 40px"
+          class="main-rounded"
+          label="نشر"
+          color="primary"
+          @click="$emit('emitPost')"
+        /> -->
       </div>
     </div>
     <!-- ////////// -->
@@ -100,6 +109,10 @@ export default {
       default: false,
     },
     searchIcon: {
+      type: Boolean,
+      default: false,
+    },
+    post: {
       type: Boolean,
       default: false,
     },
