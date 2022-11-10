@@ -1,12 +1,21 @@
 <template>
-  <div class="user__img">
+  <div class="user__img" :style="addStyle">
     <img :src="imgSrc" />
   </div>
 </template>
 
 <script>
 export default {
-  props: ["imgSrc"],
+  props: {
+    addStyle: {
+      type: String,
+      default: "",
+    },
+    imgSrc: {
+      type: String,
+      default: "",
+    },
+  },
 };
 </script>
 

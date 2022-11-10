@@ -1,6 +1,5 @@
 <template>
   <div class="horizental-list multible-upload q-my-md">
-    {{ image_uploader }}
     <div @click="uploadPostImages" class="my-card multible-upload__uploader">
       <input
         style="display: none"
@@ -12,8 +11,18 @@
       />
       <img class="" src="img/placeholder.png" />
     </div>
-    <div v-for="(img, i) in image_uploader" :key="i" class="my-card">
+    <div
+      v-show="image_uploader.length"
+      v-for="(img, i) in image_uploader"
+      :key="i"
+      class="my-card"
+    >
       <img :src="img" />
+    </div>
+    <div v-show="!image_uploader.length" class="my-card text-hint text-body1">
+      <div class="q-ma-auto text-center multible-upload__no-photo">
+        لا يوجد صور
+      </div>
     </div>
   </div>
 </template>
@@ -23,12 +32,7 @@ import { ref } from "vue";
 export default {
   setup() {
     return {
-      image_uploader: ref([
-        // "test/Rectangle 4331.png",
-        // "test/Rectangle 4332.png",
-        // "test/Rectangle 4334.png",
-        // "test/Rectangle 4335.png",
-      ]),
+      image_uploader: ref([]),
       images_file: ref([]),
     };
   },
@@ -38,44 +42,32 @@ export default {
       input.click();
     },
     uploadStoryChanged() {
-      // handel image before upload
-      // const allwoedType = [
-      //   "image/jpeg",
-      //   "image/png",
-      //   "image/svg+xml",
-      //   "image/webp",
-      // ];
-      const file = event.target.files;
-      const fileleanth = file.length;
-      for (var i = 0; i < fileleanth; i++) {
-        var imgData = new FileReader();
-        imgData.readAsDataURL(file[i]);
-        imgData.onload = (e) => {
-          //     // for review
-          this.image_uploader.push(e.target.result);
-          this.images_file.push(file[i]);
-        };
-      }
+      this.image_uploader = [];
+      this.images_file = [];
 
-      // const file = event.target.files[0];
-      // if (allwoedType.indexOf(file.type) !== -1) {
-      //   var imgData = new FileReader();
-      //   imgData.readAsDataURL(file);
-      //   imgData.onload = (e) => {
-      //     // for review
-      //     this.story_upload_src = e.target.result;
-      //     // for uploading
-      //     this.story_upload = file;
-      //     // open dialog
-      //     this.dialog_upload = true;
-      //   };
-      // } else {
-      //   this.$q.notify({
-      //     message:
-      //       "Sorry! You can't upload image With " + file.type + " Extension",
-      //     color: "red",
-      //   });
-      // }
+      // handel image before upload
+      // accepted extentions for image
+      const allwoedType = ["image/jpeg", "image/png", "image/webp"];
+      const file = event.target.files;
+      for (let i = 0; i < file.length; i++) {
+        if (allwoedType.indexOf(file[i].type) !== -1) {
+          const imgData = new FileReader();
+          imgData.readAsDataURL(file[i]);
+          imgData.onload = (e) => {
+            this.image_uploader.push(e.target.result);
+          };
+          this.images_file = file;
+        } else {
+          this.$q.notify({
+            message:
+              "Sorry! You can't upload image With " +
+              file[i].type +
+              " Extension",
+            color: "red",
+          });
+        }
+      }
+      this.$emit("passImagesFile", this.images_file);
     },
   },
 };
@@ -108,6 +100,12 @@ export default {
     &:active {
       background-color: rgba(204, 204, 204, 0.24);
     }
+  }
+  &__no-photo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 </style>

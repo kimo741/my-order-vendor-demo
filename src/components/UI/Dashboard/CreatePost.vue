@@ -14,7 +14,13 @@
       />
       <div class="col-6 text-h1 text-500 text-center q-my-auto">اضافة منتج</div>
       <div class="col-3 text-left">
-        <q-btn class="" flat icon="close" size="sm" />
+        <q-btn
+          @click="$emit('closePost')"
+          class=""
+          flat
+          icon="close"
+          size="sm"
+        />
       </div>
     </div>
     <!-- ///////// -->
@@ -48,7 +54,7 @@
       </q-card>
     </div>
     <PostForm />
-    <UploadMultibleImage />
+    <UploadMultibleImage @passImagesFile="getUploadImages" />
   </q-card>
 </template>
 
@@ -97,6 +103,7 @@ export default {
   methods: {
     submitPost() {},
     showAllProducts() {},
+    getUploadImages(files) {},
   },
 };
 </script>

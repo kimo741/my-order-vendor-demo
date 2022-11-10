@@ -17,6 +17,7 @@ import HomePage from 'src/pages/HomePage.vue'
 //////////////////// children ////////////////////////
 /////////////////////////////////////////////////////
 import GainChart from "src/pages/chart/ChartAllGain.vue"
+import NofifyPage from "src/components/UI/Dashboard/NotifyPage.vue"
 import TopProduct from "src/components/UI/Dashboard/TopOrders.vue"
 import SpacificOrder from 'src/components/orders/SpacificOrder.vue'
 import AddAndEditProduct from 'src/components/products/AddAndEditProduct.vue'
@@ -49,6 +50,11 @@ const routes = [
             path: 'gain-chart',
             component: GainChart,
             name:"gain-chart"
+          },
+          {
+            path: 'notifcation',
+            component:NofifyPage ,
+            name:"notify"
           },
         ]
       },

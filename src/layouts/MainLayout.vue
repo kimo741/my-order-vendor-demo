@@ -11,7 +11,7 @@
         transition-hide="slide-down"
         persistent
       >
-        <CreatePost />
+        <CreatePost @closePost="closeDialogPost" />
       </q-dialog>
     </q-page-container>
 
@@ -38,6 +38,9 @@ export default {
   methods: {
     createPost() {
       this.create_post = true;
+    },
+    closeDialogPost() {
+      this.create_post = false;
     },
   },
 };

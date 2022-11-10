@@ -22,7 +22,7 @@
           icon="img:icon\notfication.png"
           align="left"
           flat
-          @click="openNotficatonPage"
+          @click="$router.push({ name: 'notify' })"
         >
           <!-- ///////////////////////////////////// -->
           <!-- badge if have notficaton was,t see it -->
