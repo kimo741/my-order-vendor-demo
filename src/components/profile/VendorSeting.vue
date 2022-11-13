@@ -1,5 +1,5 @@
 <template>
-  <q-page class="q-mx-sm" dir="rtl">
+  <q-page dir="rtl">
     <DynamicHeader title="ملفي" />
     <UploadProfileImg @uploadFile="profileImgFile" />
     <div class="q-mx-auto text-center q-my-sm text-body2 text-bold">
