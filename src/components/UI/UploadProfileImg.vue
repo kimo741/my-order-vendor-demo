@@ -4,7 +4,6 @@
     <!-- input not display to apload image -->
     <!-- ///////////////////////////////// -->
     <input class="input" ref="input" @change="changeImag" type="file" />
-    <div class="text-subtitle1"></div>
     <!-- ////////////////////////////////////////////////////// -->
     <!-- image rouded will show placeholde in not upload image  -->
     <!-- ////////////////////////////////////////////////////// -->
