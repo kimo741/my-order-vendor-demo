@@ -35,7 +35,10 @@
     <!-- aria chart -->
     <!-- ////////// -->
     <AriaChart :options="options" :series="series" />
-    <NumperOfOrder @showAll="curentOrders" label_title="عدد الطلبات الجارية" />
+    <NumperOfOrder
+      @showCurentOreder="curentOrders"
+      label_title="عدد الطلبات الجارية"
+    />
     <TitleBar @showAll="showAllTopProduct" label="الوجبات الاكثر طلبا" />
     <SliderItemV :products="items" />
     <!-- /////////////////////////////////// -->
@@ -109,7 +112,7 @@ import { ref } from "vue";
 import DynamicHeader from "src/components/UI/DynamicHeader.vue";
 import AnalyticsOrder from "src/components/UI/Dashboard/AnalyticsOrder.vue";
 import TitleBar from "src/components/UI/TitleBar.vue";
-import AriaChart from "src/components/Charts/AriaChart.vue";
+import LineChart from "src/components/Charts/LineChart.vue";
 import NumperOfOrder from "src/components/UI/Dashboard/NumperOfOrder.vue";
 import TitleBarWithDropdown from "src/components/UI/Dashboard/TitleBarWithDropdown.vue";
 import SliderItemV from "src/components/UI/sliders/SliderItemV.vue";
@@ -123,7 +126,7 @@ export default {
     DynamicHeader,
     AnalyticsOrder,
     TitleBar,
-    AriaChart,
+    LineChart,
     NumperOfOrder,
     TitleBarWithDropdown,
     SliderItemV,
@@ -271,6 +274,7 @@ export default {
       console.log(val);
     },
     curentOrders() {
+      this.$router.push("/order");
       // see all curent orders
     },
     showAllChart() {

@@ -54,7 +54,8 @@
       </q-card>
     </div>
     <PostForm />
-    <UploadMultibleImage @passImagesFile="getUploadImages" />
+    <!-- <UploadMultibleImage @passImagesFile="getUploadImages" />
+    <q-toggle label="تسويق بالعموله" v-model="value" /> -->
   </q-card>
 </template>
 
@@ -63,9 +64,9 @@ import DynamicHeader from "../DynamicHeader.vue";
 import TitleBar from "../TitleBar.vue";
 import { ref } from "vue";
 import PostForm from "./PostForm.vue";
-import UploadMultibleImage from "../UploadMultibleImage.vue";
+// import UploadMultibleImage from "../UploadMultibleImage.vue";
 export default {
-  components: { DynamicHeader, TitleBar, PostForm, UploadMultibleImage },
+  components: { DynamicHeader, TitleBar, PostForm },
   setup() {
     return {
       products: ref([

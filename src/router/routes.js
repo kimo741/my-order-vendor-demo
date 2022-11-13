@@ -21,6 +21,8 @@ import NofifyPage from "src/components/UI/Dashboard/NotifyPage.vue"
 import TopProduct from "src/components/UI/Dashboard/TopOrders.vue"
 import SpacificOrder from 'src/components/orders/SpacificOrder.vue'
 import AddAndEditProduct from 'src/components/products/AddAndEditProduct.vue'
+import SpacificPost from 'src/components/profile/SpacificPost.vue'
+import setting from 'src/components/profile/VendorSeting.vue'
 /////////////////////////////////////////////////////
 //////////////////// routs //////////////////////////
 /////////////////////////////////////////////////////
@@ -108,7 +110,18 @@ const routes = [
         {
           path:"",
           component:ProfilePage,
-        }
+        },
+        {
+          path:"setting",
+          component:setting,
+          name:"setting",
+        },
+        {
+          path:"post:post",
+          component:SpacificPost,
+          props:true,
+          name:"spacificPost"
+        },
       ]
     },
     ]

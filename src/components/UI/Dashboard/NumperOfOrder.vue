@@ -20,7 +20,7 @@
         <!-- /////// -->
         <div class="col-4 text-body2 text-left">
           <q-btn
-            @click="$emit('showAll')"
+            @click="$emit('showCurentOreder')"
             size="sm"
             label="مشاهدة الكل"
             class=""

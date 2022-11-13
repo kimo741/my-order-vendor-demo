@@ -33,16 +33,16 @@
     <!-- ////////////////// -->
     <!--  chart in this month -->
     <!-- ////////////////// -->
-    <AriaChart :options="options_month" :series="series" />
+    <LineChart :options="options_month" :series="series" />
   </q-page>
 </template>
 
 <script>
-import AriaChart from "src/components/Charts/AriaChart.vue";
+import LineChart from "src/components/Charts/LineChart.vue";
 import DynamicHeader from "src/components/UI/DynamicHeader.vue";
 import { ref } from "vue";
 export default {
-  components: { AriaChart, DynamicHeader },
+  components: { LineChart, DynamicHeader },
   setup() {
     return {
       options_day: ref({

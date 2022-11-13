@@ -19,30 +19,140 @@
       <span class="text-hint q-mx-sm">(25)</span>
     </div>
     <div class="profile-posts">
-      <div class="profile-posts__img">
-        <img src="test/Rectangle 4322.png" />
-      </div>
-      <div class="profile-posts__img">
-        <img src="test/Rectangle 4335.png" />
-      </div>
-      <div class="profile-posts__img">
-        <img src="test/Rectangle 4334.png" />
-      </div>
-      <div class="profile-posts__img">
-        <img src="test/Rectangle 4333.png" />
-      </div>
-      <div class="profile-posts__img">
-        <img src="test/Rectangle 4332.png" />
-      </div>
-      <div class="profile-posts__img">
-        <img src="test/Rectangle 4331.png" />
+      <div
+        v-for="(post, i) in user_posts"
+        @click="openSpacificPost(post)"
+        :key="i"
+        class="profile-posts__img"
+      >
+        <img :src="post.img" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { ref } from "vue";
+export default {
+  setup() {
+    return {
+      user_posts: ref([
+        {
+          id: "1",
+          name: "اسم الشخص",
+          post_from: "اليوم , منذ 5 ساعات",
+          disc: "وريم ايبسوم هو نموذج افتراضي يوضع في التصاميم على العميل ليتصور طريقه وضع النصوص",
+          img: "test/Rectangle 4322.png",
+          rating: "4",
+          review: "25",
+          likes_count: "20",
+          delevry_time: "11 دقيقة",
+          distance: "2.5 km",
+          order_time: "30 دقيقة",
+          post_view: "1.245",
+          share: "125",
+          reach: "2.455",
+          interaction: "375",
+        },
+        {
+          id: "2",
+          name: "اسم الشخص",
+          post_from: "اليوم , منذ 5 ساعات",
+          disc: "وريم ايبسوم هو نموذج افتراضي يوضع في التصاميم على العميل ليتصور طريقه وضع النصوص",
+          img: "test/Rectangle 4335.png",
+          rating: "4",
+          review: "25",
+          likes_count: "20",
+          delevry_time: "11 دقيقة",
+          distance: "2.5 km",
+          order_time: "30 دقيقة",
+          post_view: "1.245",
+          share: "125",
+          reach: "2.455",
+          interaction: "375",
+        },
+        {
+          id: "3",
+          name: "اسم الشخص",
+          post_from: "اليوم , منذ 5 ساعات",
+          disc: "وريم ايبسوم هو نموذج افتراضي يوضع في التصاميم على العميل ليتصور طريقه وضع النصوص",
+          img: "test/Rectangle 4334.png",
+          rating: "4",
+          review: "25",
+          likes_count: "20",
+          delevry_time: "11 دقيقة",
+          distance: "2.5 km",
+          order_time: "30 دقيقة",
+          post_view: "1.245",
+          share: "125",
+          reach: "2.455",
+          interaction: "375",
+        },
+        {
+          id: "4",
+          name: "اسم الشخص",
+          post_from: "اليوم , منذ 5 ساعات",
+          disc: "وريم ايبسوم هو نموذج افتراضي يوضع في التصاميم على العميل ليتصور طريقه وضع النصوص",
+          img: "test/Rectangle 4333.png",
+          rating: "4",
+          review: "25",
+          likes_count: "20",
+          delevry_time: "11 دقيقة",
+          distance: "2.5 km",
+          order_time: "30 دقيقة",
+          post_view: "1.245",
+          share: "125",
+          reach: "2.455",
+          interaction: "375",
+        },
+        {
+          id: "5",
+          name: "اسم الشخص",
+          post_from: "اليوم , منذ 5 ساعات",
+          disc: "وريم ايبسوم هو نموذج افتراضي يوضع في التصاميم على العميل ليتصور طريقه وضع النصوص",
+          img: "test/Rectangle 4332.png",
+          rating: "4",
+          review: "25",
+          likes_count: "20",
+          delevry_time: "11 دقيقة",
+          distance: "2.5 km",
+          order_time: "30 دقيقة",
+          post_view: "1.245",
+          share: "125",
+          reach: "2.455",
+          interaction: "375",
+        },
+        {
+          id: "6",
+          name: "اسم الشخص",
+          post_from: "اليوم , منذ 5 ساعات",
+          disc: "وريم ايبسوم هو نموذج افتراضي يوضع في التصاميم على العميل ليتصور طريقه وضع النصوص",
+          img: "test/Rectangle 4331.png",
+          rating: "4",
+          review: "25",
+          likes_count: "20",
+          delevry_time: "11 دقيقة",
+          distance: "2.5 km",
+          order_time: "30 دقيقة",
+          post_view: "1.245",
+          share: "125",
+          reach: "2.455",
+          interaction: "375",
+        },
+      ]),
+    };
+  },
+  methods: {
+    openSpacificPost(post) {
+      this.$router.push({
+        name: "spacificPost",
+        params: {
+          post: post.id,
+        },
+      });
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

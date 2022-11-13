@@ -73,7 +73,7 @@ export default {
   },
   setup() {
     return {
-      tab: ref("past"),
+      tab: ref("current"),
       current_orders: ref([
         {
           id: 1,

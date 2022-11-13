@@ -86,15 +86,22 @@
         <q-input v-model="post_info.date_to" dense outlined type="date" />
       </div>
     </div>
+    <UploadMultibleImage @passImagesFile="getUploadImages" />
+    <q-toggle
+      class="q-my-sm"
+      label="تسويق بالعموله"
+      v-model="post_info.commission_marketing"
+    />
   </q-form>
 </template>
 
 <script>
 import { ref } from "vue";
+import UploadMultibleImage from "../UploadMultibleImage.vue";
 import UserImage from "../UserImage.vue";
 
 export default {
-  components: { UserImage },
+  components: { UserImage, UploadMultibleImage },
   setup() {
     return {
       post_info: ref({
@@ -105,6 +112,7 @@ export default {
         code: "",
         date_form: "",
         date_to: "",
+        commission_marketing: false,
       }),
     };
   },

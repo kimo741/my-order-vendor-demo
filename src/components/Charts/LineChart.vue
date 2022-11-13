@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div dir="rtl">
     <apexchart width="100%" type="area" :options="options" :series="series">
     </apexchart>
   </div>
