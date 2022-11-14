@@ -104,13 +104,21 @@
       color="primary"
       icon="eva-plus"
       class="add-button"
+      :class="hideButt ? 'hide-button' : ''"
     />
+    <!-- <div class="text-dark">{{ hideButt }}</div> -->
   </transition-group>
 </template>
 
 <script>
 import { ref } from "vue";
 export default {
+  props: {
+    hideButt: {
+      type: Boolean,
+      default: false,
+    },
+  },
   setup() {
     return {
       active_footer: ref(""),
@@ -140,9 +148,14 @@ export default {
   top: 0%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out;
 }
 .text-links {
   font-size: 10px;
   color: $primary;
+}
+.hide-button {
+  bottom: 0;
+  top: 50%;
 }
 </style>

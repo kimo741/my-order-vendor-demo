@@ -8,6 +8,7 @@
       class="row justify-between items-center setting-list__item"
       v-for="(item, i) in seting_lists"
       :key="i"
+      :to="item.to"
     >
       <div class="col-9 text-right flex items-center">
         <q-icon size="xs" :name="item.icon" />
@@ -32,7 +33,7 @@ export default {
         {
           label: "البيانات الشخصية",
           icon: "img:icon/profile_info.png",
-          // to: "",
+          to: "edit-info",
         },
         {
           label: "المتجر",

@@ -8,7 +8,6 @@
     <ProfileInfo />
     <HeighLightStory />
     <PostsContainer />
-    <AreaChart />
   </q-page>
 </template>
 

@@ -23,6 +23,10 @@ import SpacificOrder from 'src/components/orders/SpacificOrder.vue'
 import AddAndEditProduct from 'src/components/products/AddAndEditProduct.vue'
 import SpacificPost from 'src/components/profile/SpacificPost.vue'
 import setting from 'src/components/profile/VendorSeting.vue'
+import EditPersolInfo from 'src/components/profile/setting/EditPersolInfo.vue'
+import EditUserInfo from 'src/components/profile/setting/EditUserInfo.vue'
+import EditPhoneNumber from 'src/components/profile/setting/EditPhoneNumber.vue'
+import ChangePassword from 'src/components/profile/setting/ChangePassword.vue'
 /////////////////////////////////////////////////////
 //////////////////// routs //////////////////////////
 /////////////////////////////////////////////////////
@@ -121,6 +125,26 @@ const routes = [
           component:SpacificPost,
           props:true,
           name:"spacificPost"
+        },
+        {
+          path:"edit-info",
+          component:EditPersolInfo,
+          name:"EditPersolInfo"
+        },
+        {
+          path:"user-info",
+          component:EditUserInfo,
+          name:"EditUserName"
+        },
+        {
+          path:"edit-phone-number",
+          component:EditPhoneNumber,
+          name:"EditPhoneNumber"
+        },
+        {
+          path:"change-password",
+          component:ChangePassword,
+          name:"ChangePassword"
         },
       ]
     },

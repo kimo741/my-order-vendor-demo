@@ -67,11 +67,11 @@ export default {
       }),
       lineSeries: ref([
         {
-          name: "Session Duration",
+          name: "الارباح",
           data: [45, 52, 38, 24, 33, 26, 21],
         },
         {
-          name: "Page Views",
+          name: "المبيعات",
           data: [35, 41, 62, 42, 13, 18, 29],
           tooltip: {},
         },
@@ -113,7 +113,7 @@ export default {
       }),
       areaSeries: ref([
         {
-          name: "Series 1",
+          name: "مشاهدة",
           data: [45, 52, 38, 45, 19, 23, 2],
         },
       ]),

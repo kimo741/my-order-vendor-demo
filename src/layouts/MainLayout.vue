@@ -1,6 +1,6 @@
 
 <template>
-  <q-layout view="hHh lpR fFf">
+  <q-layout view="hHh lpR fFf" @scroll="handleScroll">
     <q-page-container>
       <router-view />
       <q-dialog
@@ -18,7 +18,7 @@
     <q-footer class="bg-white">
       <q-toolbar>
         <q-toolbar-title>
-          <footer-section @createPost="createPost" />
+          <footer-section @createPost="createPost" :hideButt="hideButton" />
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
@@ -33,6 +33,8 @@ export default {
   setup() {
     return {
       create_post: ref(false),
+      infoo: ref(false),
+      hideButton: ref(false),
     };
   },
   methods: {
@@ -42,7 +44,17 @@ export default {
     closeDialogPost() {
       this.create_post = false;
     },
+    handleScroll(e) {
+      if (e.direction == "up") {
+        this.hideButton = false;
+      } else {
+        this.hideButton = true;
+      }
+    },
   },
+  // created() {
+  //   window.addEventListener("scroll", this.handleScroll);
+  // },
 };
 </script>
 
