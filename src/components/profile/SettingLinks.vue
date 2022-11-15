@@ -48,7 +48,7 @@ export default {
         {
           label: "المدفوعات والمحفظه",
           icon: "img:icon/box.png",
-          // to: "",
+          to: "Payments&Wallet",
         },
         {
           label: "اللغة",

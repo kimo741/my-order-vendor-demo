@@ -27,6 +27,9 @@ import EditPersolInfo from 'src/components/profile/setting/EditPersolInfo.vue'
 import EditUserInfo from 'src/components/profile/setting/EditUserInfo.vue'
 import EditPhoneNumber from 'src/components/profile/setting/EditPhoneNumber.vue'
 import ChangePassword from 'src/components/profile/setting/ChangePassword.vue'
+import ChangeEmail from 'src/components/profile/setting/ChangeEmail.vue'
+import EditAdress from 'src/components/profile/setting/EditAdress.vue'
+import PaymentsAndWallet from 'src/components/profile/setting/PaymentsAndWallet.vue'
 /////////////////////////////////////////////////////
 //////////////////// routs //////////////////////////
 /////////////////////////////////////////////////////
@@ -145,6 +148,21 @@ const routes = [
           path:"change-password",
           component:ChangePassword,
           name:"ChangePassword"
+        },
+        {
+          path:"change-emailadress",
+          component:ChangeEmail,
+          name:"ChangeEmail"
+        },
+        {
+          path:"change-adress",
+          component:EditAdress,
+          name:"EditAdress"
+        },
+        {
+          path:"Payments&Wallet",
+          component:PaymentsAndWallet,
+          name:"PaymentsAndWallet"
         },
       ]
     },

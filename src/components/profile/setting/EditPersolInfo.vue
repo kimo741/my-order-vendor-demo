@@ -60,10 +60,10 @@ export default {
       this.$router.push({ name: "ChangePassword" });
     },
     changeAdress() {
-      // this.$router.push({////});
+      this.$router.push({ name: "EditAdress" });
     },
     changeEmail() {
-      // this.$router.push(///////);
+      this.$router.push({ name: "ChangeEmail" });
     },
   },
 };

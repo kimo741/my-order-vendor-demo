@@ -35,6 +35,7 @@
           class="q-px-xl main-rounded"
           size="md"
           label="تعديل الملف"
+          @click="changeProfleInfo"
         />
       </div>
     </div>
@@ -43,12 +44,19 @@
 
 <script>
 import UserImage from "../UI/UserImage.vue";
+import { ref } from "vue";
+
 export default {
   components: { UserImage },
-  data() {
+  setup() {
     return {
-      ratingModel: "3",
+      ratingModel: ref("3"),
     };
+  },
+  methods: {
+    changeProfleInfo() {
+      this.$router.push({ name: "EditPersolInfo" });
+    },
   },
 };
 </script>
