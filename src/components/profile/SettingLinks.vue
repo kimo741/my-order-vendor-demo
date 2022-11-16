@@ -43,7 +43,7 @@ export default {
         {
           label: "الأكواد",
           icon: "img:icon/ticket-discount.png",
-          // to: "",
+          to: "sale-code",
         },
         {
           label: "المدفوعات والمحفظه",

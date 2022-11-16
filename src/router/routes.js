@@ -24,12 +24,13 @@ import AddAndEditProduct from 'src/components/products/AddAndEditProduct.vue'
 import SpacificPost from 'src/components/profile/SpacificPost.vue'
 import setting from 'src/components/profile/VendorSeting.vue'
 import EditPersolInfo from 'src/components/profile/setting/EditPersolInfo.vue'
-import EditUserInfo from 'src/components/profile/setting/EditUserInfo.vue'
-import EditPhoneNumber from 'src/components/profile/setting/EditPhoneNumber.vue'
-import ChangePassword from 'src/components/profile/setting/ChangePassword.vue'
-import ChangeEmail from 'src/components/profile/setting/ChangeEmail.vue'
-import EditAdress from 'src/components/profile/setting/EditAdress.vue'
+import EditUserInfo from 'src/components/profile/setting/Personal/EditUserInfo.vue'
+import EditPhoneNumber from 'src/components/profile/setting/Personal/EditPhoneNumber.vue'
+import ChangePassword from 'src/components/profile/setting/Personal/ChangePassword.vue'
+import ChangeEmail from 'src/components/profile/setting/Personal/ChangeEmail.vue'
+import EditAdress from 'src/components/profile/setting/Personal/EditAdress.vue'
 import PaymentsAndWallet from 'src/components/profile/setting/PaymentsAndWallet.vue'
+import SaleCode from 'src/components/profile/setting/SaleCode.vue'
 /////////////////////////////////////////////////////
 //////////////////// routs //////////////////////////
 /////////////////////////////////////////////////////
@@ -163,6 +164,11 @@ const routes = [
           path:"Payments&Wallet",
           component:PaymentsAndWallet,
           name:"PaymentsAndWallet"
+        },
+        {
+          path:"sale-code",
+          component:SaleCode,
+          name:"SaleCode"
         },
       ]
     },

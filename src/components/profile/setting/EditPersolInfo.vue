@@ -1,6 +1,12 @@
 <template>
   <q-page class="q-mx-sm" dir="rtl">
-    <DynamicHeader title="ملفي" :back-icon="true" se />
+    <DynamicHeader
+      @emitSetting="settingPage"
+      :setingIcon="true"
+      title="ملفي"
+      :back-icon="true"
+      se
+    />
     <UploadProfileImg />
     <!-- ///////// -->
     <!-- user name -->
@@ -64,6 +70,9 @@ export default {
     },
     changeEmail() {
       this.$router.push({ name: "ChangeEmail" });
+    },
+    settingPage() {
+      this.$router.push({ name: "setting" });
     },
   },
 };
