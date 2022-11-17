@@ -31,6 +31,7 @@ import ChangeEmail from 'src/components/profile/setting/Personal/ChangeEmail.vue
 import EditAdress from 'src/components/profile/setting/Personal/EditAdress.vue'
 import PaymentsAndWallet from 'src/components/profile/setting/PaymentsAndWallet.vue'
 import SaleCode from 'src/components/profile/setting/SaleCode.vue'
+import GeneratDiscountCode from 'src/components/profile/setting/SaleCode/GeneratDiscoutCode.vue'
 /////////////////////////////////////////////////////
 //////////////////// routs //////////////////////////
 /////////////////////////////////////////////////////
@@ -169,6 +170,11 @@ const routes = [
           path:"sale-code",
           component:SaleCode,
           name:"SaleCode"
+        },
+        {
+          path:"generat-code",
+          component:GeneratDiscountCode,
+          name:"GeneratCode"
         },
       ]
     },

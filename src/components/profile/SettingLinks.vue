@@ -9,6 +9,7 @@
       v-for="(item, i) in seting_lists"
       :key="i"
       :to="item.to"
+      @click="handelClick(item)"
     >
       <div class="col-9 text-right flex items-center">
         <q-icon size="xs" :name="item.icon" />
@@ -21,14 +22,36 @@
     <q-item @click="logout">
       <div class="text-right text-primary text-500">تسجيل الخروج</div>
     </q-item>
+    <q-dialog v-model="contact_us_dialog">
+      <ContantUs @closeContactUs="contact_us_dialog = false" />
+    </q-dialog>
+    <q-dialog v-model="about_app_dialog">
+      <about-app @closeAboutApp="about_app_dialog = false" />
+    </q-dialog>
+    <q-dialog v-model="termes_dialog">
+      <TermsOfUse @closeTermOfUse="termes_dialog = false" />
+    </q-dialog>
+    <q-dialog v-model="policy_dialog">
+      <PrivacyPolicy @closePrivacyPolicy="policy_dialog = false" />
+    </q-dialog>
   </q-list>
 </template>
 
 <script>
 import { ref } from "vue";
+import ContantUs from "./setting/dialogs/ContantUs.vue";
+import AboutApp from "./setting/dialogs/AboutApp.vue";
+import TermsOfUse from "./setting/dialogs/TermsOfUse.vue";
+import PrivacyPolicy from "./setting/dialogs/PrivacyPolicy.vue";
+
 export default {
+  components: { ContantUs, AboutApp, TermsOfUse, PrivacyPolicy },
   setup() {
     return {
+      contact_us_dialog: ref(false),
+      about_app_dialog: ref(false),
+      termes_dialog: ref(false),
+      policy_dialog: ref(false),
       seting_lists: ref([
         {
           label: "البيانات الشخصية",
@@ -58,7 +81,6 @@ export default {
         {
           label: "اتصل بنا",
           icon: "img:icon/call.png",
-          // to: "",
         },
         {
           label: "عن التطبيق",
@@ -85,6 +107,22 @@ export default {
   },
   methods: {
     logout() {},
+    handelClick(item) {
+      switch (item.label) {
+        case "اتصل بنا":
+          this.contact_us_dialog = true;
+          break;
+        case "عن التطبيق":
+          this.about_app_dialog = true;
+          break;
+        case "شروط الاستخدام":
+          this.termes_dialog = true;
+          break;
+        case "سياسة الخصوصية":
+          this.policy_dialog = true;
+          break;
+      }
+    },
   },
 };
 </script>

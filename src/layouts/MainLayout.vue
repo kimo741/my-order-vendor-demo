@@ -1,7 +1,7 @@
 
 <template>
   <q-layout view="hHh lpR fFf" @scroll="handleScroll">
-    <q-page-container>
+    <q-page-container v-if="this.$q.platform.is.mobile">
       <router-view />
       <q-dialog
         v-model="create_post"
@@ -13,6 +13,9 @@
       >
         <CreatePost @closePost="closeDialogPost" />
       </q-dialog>
+    </q-page-container>
+    <q-page-container v-else>
+      <NoDesktop />
     </q-page-container>
 
     <q-footer class="bg-white">
@@ -28,8 +31,9 @@
 import { ref } from "vue";
 import FooterSection from "src/components/footer/FooterSection.vue";
 import CreatePost from "src/components/UI/Dashboard/CreatePost.vue";
+import NoDesktop from "src/pages/NoDesktop.vue";
 export default {
-  components: { FooterSection, CreatePost },
+  components: { FooterSection, CreatePost, NoDesktop },
   setup() {
     return {
       create_post: ref(false),
@@ -52,9 +56,10 @@ export default {
       }
     },
   },
-  // created() {
-  //   window.addEventListener("scroll", this.handleScroll);
-  // },
+  mounted() {
+    // window.addEventListener("scroll", this.handleScroll);
+    console.log(this.$q);
+  },
 };
 </script>
 

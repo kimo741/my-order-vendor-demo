@@ -200,7 +200,9 @@ export default {
   },
 
   methods: {
-    createCode() {},
+    createCode() {
+      this.$router.push({ name: "GeneratCode" });
+    },
     reviewOfferData(data) {
       this.review_card = data;
       this.dialog = true;
