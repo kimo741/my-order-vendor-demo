@@ -5,7 +5,16 @@ import HomeLayout from 'src/layouts/childes/HomeLayout.vue'
 import OrderLayout from 'src/layouts/childes/OrderLayout.vue'
 import ProductLayout from 'src/layouts/childes/ProductLayout.vue'
 import ProfileLayout from 'src/layouts/childes/ProfileLayout.vue'
-// import CheatePost from 'src/pages/CreatePost.vue'
+import WecomeLayout from 'src/layouts/WelcomApp.vue'
+/////////////////////////////////////////////////////
+///////////////////// welcome Pages /////////////////
+/////////////////////////////////////////////////////
+import WelcomeSlier from 'src/components/welcome-pages/WelcomeSlider.vue'
+import Login from 'src/components/welcome-pages/Login/LoginPage.vue'
+import Vefrication from 'src/components/welcome-pages/Login/verificationPage.vue'
+import ForgetPassword from 'src/components/welcome-pages/Login/ForgitePassword.vue'
+import CreatePassword from 'src/components/welcome-pages/Login/CreateNewPassword.vue'
+import RejesterAccount from 'src/components/welcome-pages/regester/RejesterAccount.vue'
 /////////////////////////////////////////////////////
 //////////////////// pages //////////////////////////
 /////////////////////////////////////////////////////
@@ -13,6 +22,7 @@ import OrdersPage from "src/pages/OrdersView.vue"
 import ProductPage from 'src/pages/ProductPage'
 import ProfilePage from 'src/pages/ProfilePage.vue'
 import HomePage from 'src/pages/HomePage.vue'
+import SearchPage from 'src/pages/MainSearch.vue'
 //////////////////////////////////////////////////////
 //////////////////// children ////////////////////////
 /////////////////////////////////////////////////////
@@ -38,8 +48,53 @@ import GeneratDiscountCode from 'src/components/profile/setting/SaleCode/Generat
 
 const routes = [
   {
+    path:'/welcome',
+    component:WecomeLayout,
+    name:"welcome",
+    children:[
+      {
+        path:'slider',
+        component:WelcomeSlier,
+        name:"wilcomeSlider",
+      },
+      {
+        path:'login',
+        component:Login,
+        name:"login",
+      },
+      {
+        path:'login',
+        component:Login,
+        name:"login",
+      },
+      {
+        path:'verification/:phone',
+        component:Vefrication,
+        name:"verification",
+        props:true
+      },
+      {
+        path:'ForgetPassword',
+        component:ForgetPassword,
+        name:"ForgetPassword",
+        props:true
+      },
+      {
+        path:'creatNewPassword',
+        component:CreatePassword,
+        name:"creatNewPassword",
+      },
+      {
+        path:'RejesterAccount',
+        component:RejesterAccount,
+        name:"RejesterAccount",
+      },
+    ],
+  },
+  {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
+    meta: { firstView: true },
     children: [
     /////////////////////////////////////////////////
     //////////////// home container /////////////////
@@ -66,6 +121,11 @@ const routes = [
             path: 'notifcation',
             component:NofifyPage ,
             name:"notify"
+          },
+          {
+            path: 'search',
+            component:SearchPage ,
+            name:"SearchPage"
           },
         ]
       },

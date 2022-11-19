@@ -13,7 +13,7 @@
     <!-- ////////////////// -->
     <!--  chart in this day -->
     <!-- ////////////////// -->
-    <AriaChart :options="options_day" :series="series" />
+    <LineChart :options="options_day" :series="series" />
     <!-- /////////////////////////// -->
     <!-- title for chart in this week -->
     <!-- /////////////////////////// -->
@@ -23,7 +23,7 @@
     <!-- ////////////////// -->
     <!--  chart in this week -->
     <!-- ////////////////// -->
-    <AriaChart :options="options_week" :series="series" />
+    <LineChart :options="options_week" :series="series" />
     <!-- /////////////////////////// -->
     <!-- title for chart in this month -->
     <!-- /////////////////////////// -->

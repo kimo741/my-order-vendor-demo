@@ -64,7 +64,7 @@
       <!-- /////////// -->
       <q-btn
         v-if="searchIcon"
-        @click="$emit('emitSearch')"
+        @click="$router.push({ name: 'SearchPage' })"
         flat
         size="md"
         icon="img:/icon/Search.png"

@@ -34,7 +34,7 @@
     <!-- ////////// -->
     <!-- aria chart -->
     <!-- ////////// -->
-    <AriaChart :options="options" :series="series" />
+    <LineChart :options="options" :series="series" />
     <NumperOfOrder
       @showCurentOreder="curentOrders"
       label_title="عدد الطلبات الجارية"
