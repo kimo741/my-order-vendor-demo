@@ -3,7 +3,7 @@
     <!-- //// -->
     <!-- main header -->
     <!-- //// -->
-    <DynamicHeader />
+    <DynamicHeader title="الطلبات" />
     <!-- ///////////////////// -->
     <!-- input for main search -->
     <!-- ///////////////////// -->
@@ -22,6 +22,7 @@
     >
       <q-tab label="السابقة" name="past" />
       <q-tab label="الحاليه" name="current" />
+      <q-tab label="جاري التجهيز" name="done" />
     </q-tabs>
     <q-tab-panels
       style="background: #eeeeee !important"
@@ -53,6 +54,17 @@
           :orders="current_orders"
         />
       </q-tab-panel>
+      <q-tab-panel
+        class="q-pa-0 no-effict"
+        style="background: #eeeeee !important"
+        name="done"
+      >
+        <DoneOrder
+          :orders="done_orders"
+          @showMore="showMoreInfo"
+          @doneOrder="doneOrder"
+        />
+      </q-tab-panel>
     </q-tab-panels>
   </q-page>
 </template>
@@ -63,6 +75,7 @@ import CurentOrder from "src/components/orders/CurentOrder.vue";
 import DynamicHeader from "src/components/UI/DynamicHeader.vue";
 import MainSearchBar from "src/components/UI/search/mainSearchBar.vue";
 import PastOrder from "src/components/orders/PastOrder.vue";
+import DoneOrder from "src/components/orders/spacific/DoneOrder.vue";
 
 export default {
   components: {
@@ -70,6 +83,7 @@ export default {
     DynamicHeader,
     MainSearchBar,
     PastOrder,
+    DoneOrder,
   },
   setup() {
     return {
@@ -81,7 +95,7 @@ export default {
           price: 400,
           place: "الرياض",
           date: "29/8/2022",
-          status_code: 1,
+          status_code: 0,
         },
         {
           id: 1,
@@ -89,7 +103,7 @@ export default {
           price: 400,
           place: "الرياض",
           date: "29/8/2022",
-          status_code: 3,
+          status_code: 0,
         },
         {
           id: 1,
@@ -97,7 +111,23 @@ export default {
           price: 400,
           place: "الرياض",
           date: "29/8/2022",
-          status_code: 2,
+          status_code: 0,
+        },
+        {
+          id: 1,
+          orderNumber: 2345684,
+          price: 400,
+          place: "الرياض",
+          date: "29/8/2022",
+          status_code: 0,
+        },
+        {
+          id: 1,
+          orderNumber: 2345684,
+          price: 400,
+          place: "الرياض",
+          date: "29/8/2022",
+          status_code: 0,
         },
       ]),
       past_orders: ref([
@@ -108,7 +138,7 @@ export default {
           location: "الرياض",
           date: "25/5/2022",
           time: "09:00 PM",
-          status_code: 5,
+          status_code: 4,
         },
         {
           id: "2",
@@ -117,7 +147,7 @@ export default {
           location: "القاهره",
           date: "25/5/2022",
           time: "09:00 PM",
-          status_code: 5,
+          status_code: 4,
         },
         {
           id: "3",
@@ -126,7 +156,7 @@ export default {
           location: "الدمام",
           date: "25/5/2022",
           time: "09:00 PM",
-          status_code: 5,
+          status_code: 4,
         },
         {
           id: "4",
@@ -135,7 +165,7 @@ export default {
           location: "الرياض",
           date: "25/5/2022",
           time: "09:00 PM",
-          status_code: 5,
+          status_code: 4,
         },
         {
           id: "5",
@@ -144,7 +174,49 @@ export default {
           location: "الرياض",
           date: "25/5/2022",
           time: "09:00 PM",
-          status_code: 5,
+          status_code: 4,
+        },
+      ]),
+      done_orders: ref([
+        {
+          id: 1,
+          orderNumber: 2345684,
+          price: 400,
+          place: "الرياض",
+          date: "29/8/2022",
+          status_code: 2,
+        },
+        {
+          id: 1,
+          orderNumber: 2345684,
+          price: 400,
+          place: "الرياض",
+          date: "29/8/2022",
+          status_code: 2,
+        },
+        {
+          id: 1,
+          orderNumber: 2345684,
+          price: 400,
+          place: "الرياض",
+          date: "29/8/2022",
+          status_code: 2,
+        },
+        {
+          id: 1,
+          orderNumber: 2345684,
+          price: 400,
+          place: "الرياض",
+          date: "29/8/2022",
+          status_code: 2,
+        },
+        {
+          id: 1,
+          orderNumber: 2345684,
+          price: 400,
+          place: "الرياض",
+          date: "29/8/2022",
+          status_code: 2,
         },
       ]),
     };
@@ -152,6 +224,7 @@ export default {
   methods: {
     acceptOrder(id) {},
     rejectOrder(id) {},
+    doneOrder(id) {},
     showMoreInfo(order) {
       this.$router.push({
         name: "sapcific",

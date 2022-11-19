@@ -20,7 +20,12 @@
       </div>
     </q-item>
     <q-item @click="logout">
-      <div class="text-right text-primary text-500">تسجيل الخروج</div>
+      <q-btn
+        class="text-right text-primary text-500"
+        label="تسجيل الخروج"
+        @click="checkLogOut"
+        flat
+      />
     </q-item>
     <q-dialog v-model="contact_us_dialog">
       <ContantUs @closeContactUs="contact_us_dialog = false" />
@@ -34,6 +39,12 @@
     <q-dialog v-model="policy_dialog">
       <PrivacyPolicy @closePrivacyPolicy="policy_dialog = false" />
     </q-dialog>
+    <q-dialog v-model="help_dialog">
+      <HelpDialog @closePrivacyPolicy="help_dialog = false" />
+    </q-dialog>
+    <q-dialog v-model="logout_dialog">
+      <LogOut @closePrivacyPolicy="logout_dialog = false" />
+    </q-dialog>
   </q-list>
 </template>
 
@@ -43,15 +54,26 @@ import ContantUs from "./setting/dialogs/ContantUs.vue";
 import AboutApp from "./setting/dialogs/AboutApp.vue";
 import TermsOfUse from "./setting/dialogs/TermsOfUse.vue";
 import PrivacyPolicy from "./setting/dialogs/PrivacyPolicy.vue";
+import HelpDialog from "./setting/dialogs/HelpDialog.vue";
+import LogOut from "./setting/dialogs/LogOut.vue";
 
 export default {
-  components: { ContantUs, AboutApp, TermsOfUse, PrivacyPolicy },
+  components: {
+    ContantUs,
+    AboutApp,
+    TermsOfUse,
+    PrivacyPolicy,
+    HelpDialog,
+    LogOut,
+  },
   setup() {
     return {
       contact_us_dialog: ref(false),
       about_app_dialog: ref(false),
       termes_dialog: ref(false),
       policy_dialog: ref(false),
+      help_dialog: ref(false),
+      logout_dialog: ref(false),
       seting_lists: ref([
         {
           label: "البيانات الشخصية",
@@ -61,7 +83,7 @@ export default {
         {
           label: "المتجر",
           icon: "img:icon/shop.png",
-          // to: "",
+          to: "my-store",
         },
         {
           label: "الأكواد",
@@ -106,7 +128,9 @@ export default {
     };
   },
   methods: {
-    logout() {},
+    checkLogOut() {
+      this.logout_dialog = true;
+    },
     handelClick(item) {
       switch (item.label) {
         case "اتصل بنا":
@@ -120,6 +144,9 @@ export default {
           break;
         case "سياسة الخصوصية":
           this.policy_dialog = true;
+          break;
+        case "المساعدة":
+          this.help_dialog = true;
           break;
       }
     },

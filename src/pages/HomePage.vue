@@ -291,7 +291,7 @@ export default {
       this.$router.push({ name: "top-products" });
     },
     showAllAnalytics() {
-      // this.$router.push();
+      this.$router.push({ name: "AllAnalytics" });
     },
   },
 };

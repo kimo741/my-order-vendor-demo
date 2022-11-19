@@ -5,7 +5,7 @@
     <!-- ///////////// -->
     <div
       class="h-line__posint"
-      :class="orderCode >= 1 ? 'h-line__posint-active' : ''"
+      :class="orderCode >= 0 ? 'h-line__posint-active' : ''"
     >
       <div class="h-line__lable">تم ارسال الطلب</div>
     </div>
@@ -14,7 +14,7 @@
     <!-- ///////////// -->
     <div
       class="h-line__posint"
-      :class="orderCode >= 2 ? 'h-line__posint-active' : ''"
+      :class="orderCode >= 1 ? 'h-line__posint-active' : ''"
     >
       <div class="h-line__lable">تم قبول الطلب</div>
     </div>
@@ -23,7 +23,7 @@
     <!-- ///////////// -->
     <div
       class="h-line__posint"
-      :class="orderCode >= 3 ? 'h-line__posint-active' : ''"
+      :class="orderCode >= 2 ? 'h-line__posint-active' : ''"
     >
       <div class="h-line__lable">جاري التجهيز</div>
     </div>
@@ -32,7 +32,7 @@
     <!-- ///////////// -->
     <div
       class="h-line__posint"
-      :class="orderCode >= 4 ? 'h-line__posint-active' : ''"
+      :class="orderCode >= 3 ? 'h-line__posint-active' : ''"
     >
       <div class="h-line__lable">الطلب جاهز</div>
     </div>
@@ -41,7 +41,7 @@
     <!-- ///////////// -->
     <div
       class="h-line__posint h-line__posint-last"
-      :class="orderCode >= 5 ? 'h-line__posint-active' : ''"
+      :class="orderCode >= 4 ? 'h-line__posint-active' : ''"
     >
       <div class="h-line__lable">تم التسبيم الطلب</div>
     </div>

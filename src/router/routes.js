@@ -31,6 +31,7 @@ import NofifyPage from "src/components/UI/Dashboard/NotifyPage.vue"
 import TopProduct from "src/components/UI/Dashboard/TopOrders.vue"
 import SpacificOrder from 'src/components/orders/SpacificOrder.vue'
 import AddAndEditProduct from 'src/components/products/AddAndEditProduct.vue'
+import AllAnalytics from 'src/components/UI/Dashboard/AllAnalytics.vue'
 import SpacificPost from 'src/components/profile/SpacificPost.vue'
 import setting from 'src/components/profile/VendorSeting.vue'
 import EditPersolInfo from 'src/components/profile/setting/EditPersolInfo.vue'
@@ -42,6 +43,7 @@ import EditAdress from 'src/components/profile/setting/Personal/EditAdress.vue'
 import PaymentsAndWallet from 'src/components/profile/setting/PaymentsAndWallet.vue'
 import SaleCode from 'src/components/profile/setting/SaleCode.vue'
 import GeneratDiscountCode from 'src/components/profile/setting/SaleCode/GeneratDiscoutCode.vue'
+import MyStores from 'src/components/profile/setting/store/MyStores.vue'
 /////////////////////////////////////////////////////
 //////////////////// routs //////////////////////////
 /////////////////////////////////////////////////////
@@ -126,6 +128,11 @@ const routes = [
             path: 'search',
             component:SearchPage ,
             name:"SearchPage"
+          },
+          {
+            path: 'all-analytics',
+            component:AllAnalytics ,
+            name:"AllAnalytics"
           },
         ]
       },
@@ -235,6 +242,11 @@ const routes = [
           path:"generat-code",
           component:GeneratDiscountCode,
           name:"GeneratCode"
+        },
+        {
+          path:"my-store",
+          component:MyStores,
+          name:"MyStores"
         },
       ]
     },
