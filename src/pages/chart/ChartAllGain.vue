@@ -1,5 +1,5 @@
 <template>
-  <q-page dir="rtl">
+  <q-page dir="rtl" class="full-width">
     <!-- ///////////// -->
     <!-- header navbar -->
     <!-- ///////////// -->
@@ -13,7 +13,9 @@
     <!-- ////////////////// -->
     <!--  chart in this day -->
     <!-- ////////////////// -->
-    <LineChart :options="options_day" :series="series" />
+    <div>
+      <LineChart :options="options_day" :series="series" />
+    </div>
     <!-- /////////////////////////// -->
     <!-- title for chart in this week -->
     <!-- /////////////////////////// -->
@@ -23,7 +25,9 @@
     <!-- ////////////////// -->
     <!--  chart in this week -->
     <!-- ////////////////// -->
-    <LineChart :options="options_week" :series="series" />
+    <div>
+      <LineChart :options="options_week" :series="series" />
+    </div>
     <!-- /////////////////////////// -->
     <!-- title for chart in this month -->
     <!-- /////////////////////////// -->
@@ -33,7 +37,9 @@
     <!-- ////////////////// -->
     <!--  chart in this month -->
     <!-- ////////////////// -->
-    <LineChart :options="options_month" :series="series" />
+    <div>
+      <LineChart :options="options_month" :series="series" />
+    </div>
   </q-page>
 </template>
 

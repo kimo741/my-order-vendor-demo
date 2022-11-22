@@ -18,6 +18,9 @@
         <!-- product content -->
         <!-- /////////////// -->
         <div class="col-9 q-py-sm q-pr-md">
+          <!-- //////////// -->
+          <!-- product name -->
+          <!-- //////////// -->
           <div
             class="text-h3 text-500"
             :class="
@@ -32,17 +35,24 @@
               product.id == product_active ? 'vertical-list__all-info' : ''
             "
           >
+            <!-- //////////// -->
+            <!-- product disc -->
+            <!-- //////////// -->
             {{ product.disc }}
           </div>
           <div class="row justify-between items-center">
             <div class="col text-bold text-h3">{{ product.price }} ر.س</div>
             <div class="col text-left row">
+              <!-- ///////////// -->
+              <!-- active toggle -->
+              <!-- ///////////// -->
               <q-toggle
                 dense
                 class="text-no-wrap"
                 @click="changeStatus(product)"
                 v-model="product.status"
               />
+              <!-- @click="changeStatus(product)" -->
               <div
                 class="text-left q-mx-sm"
                 :class="!product.status ? 'text-hint' : ''"
@@ -52,6 +62,9 @@
             </div>
           </div>
         </div>
+        <!-- ////////////// -->
+        <!-- icon more info -->
+        <!-- ////////////// -->
         <q-icon
           class="vertical-list__more"
           size="sm"
@@ -82,9 +95,10 @@ export default {
     },
   },
   methods: {
-    changes(product) {
+    changeStatus(product) {
       let status = product.status;
       let id = product.id;
+      console.log(status, id);
     },
     showAllinfo(product) {
       if (this.product_active == product.id) {

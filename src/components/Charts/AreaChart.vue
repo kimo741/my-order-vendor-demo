@@ -3,7 +3,13 @@
     <div class="text-body2 text-500 q-pa-md">
       عدد المشاهدات البوست (اخر 7 ايام)
     </div>
-    <apexchart width="100%" type="area" :options="options" :series="series">
+    <apexchart
+      dir="ltr"
+      width="100%"
+      type="area"
+      :options="options"
+      :series="series"
+    >
     </apexchart>
   </div>
 </template>

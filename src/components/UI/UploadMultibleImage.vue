@@ -17,7 +17,14 @@
       :key="i"
       class="my-card"
     >
-      <img :src="img" />
+      <img :src="img" v-if="img" />
+      <q-icon
+        v-if="img"
+        size="xs"
+        class="my-card__delete"
+        name="close"
+        @click="deleteImage(img)"
+      />
     </div>
     <div v-show="!image_uploader.length" class="my-card text-hint text-body1">
       <div class="q-ma-auto text-center multible-upload__no-photo">
@@ -69,6 +76,15 @@ export default {
       }
       this.$emit("passImagesFile", this.images_file);
     },
+    deleteImage(value) {
+      let index;
+      for (let i = 0; i <= this.image_uploader.length; i++) {
+        if (this.image_uploader[i] === value) {
+          index = i;
+        }
+      }
+      delete this.image_uploader[index];
+    },
   },
 };
 </script>
@@ -82,9 +98,15 @@ export default {
     border-radius: 15px;
     padding: 0;
     overflow: hidden;
+    margin: auto 5px;
     img {
       height: 100%;
       width: 100%;
+    }
+    &__delete {
+      position: absolute;
+      right: 5px;
+      top: 5px;
     }
   }
   &__uploader {
