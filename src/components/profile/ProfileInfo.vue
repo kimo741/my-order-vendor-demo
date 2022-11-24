@@ -5,8 +5,14 @@
       <!-- user profile image -->
       <!-- ////////////////// -->
       <UserImage imgSrc="test/2.png" />
+      <!-- ///////////// -->
+      <!-- name for user -->
+      <!-- ///////////// -->
       <div class="text-center text-500" style="width: 75px">اسم البائع</div>
       <div class="text-center" style="width: 75px">
+        <!-- //////////////////////// -->
+        <!-- ratting for this account -->
+        <!-- //////////////////////// -->
         <q-rating
           v-model="ratingModel"
           size="10px"
@@ -16,20 +22,35 @@
         />
       </div>
     </div>
+    <!-- ///////////////// -->
+    <!-- account activetys -->
+    <!-- ///////////////// -->
     <div class="col-9 row justify-around items-center text-center">
       <div class="col-4">
+        <!-- ///////////// -->
+        <!-- account posts -->
+        <!-- ///////////// -->
         <div class="text-bold text-h3">28</div>
         <div class="text-body2">المنشورات</div>
       </div>
+      <!-- //////////////// -->
+      <!-- account folowers -->
+      <!-- //////////////// -->
       <div class="col-4">
         <div class="text-bold text-h3">500</div>
         <div class="text-body2">متابعين</div>
       </div>
+      <!-- //////////////// -->
+      <!-- account folowing -->
+      <!-- //////////////// -->
       <div class="col-4">
         <div class="text-bold text-h3">320</div>
         <div class="text-body2">متابع</div>
       </div>
       <div class="col-12 q-mt-lg q-mx-auto">
+        <!-- /////////////////////// -->
+        <!-- evend edit account info -->
+        <!-- /////////////////////// -->
         <q-btn
           color="primary"
           class="q-px-xl main-rounded"

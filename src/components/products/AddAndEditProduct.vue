@@ -124,6 +124,7 @@
           multiple
           @change="changeImag"
           v-model="product_form.img"
+          accept="image/jpeg , image/png , image/webp"
         >
           <div
             v-if="!product_form.img || !product_form.img === ''"
@@ -316,7 +317,7 @@ export default {
   },
   methods: {
     changeImag(event) {
-      const allwoedType = ["application/pdf", " application/vnd.ms-excel"];
+      const allwoedType = ["image/jpeg", "image/png", "image/webp"];
       const file = event.target.files[0];
       if (allwoedType.indexOf(file.type) !== -1) {
         var imgData = new FileReader();

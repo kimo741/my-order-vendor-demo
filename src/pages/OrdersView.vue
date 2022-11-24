@@ -30,7 +30,9 @@
       v-model="tab"
       animated
     >
+      <!-- ////////// -->
       <!-- past panel -->
+      <!-- ////////// -->
       <q-tab-panel
         class="q-pa-0 no-effict"
         style="background: #eeeeee !important"
@@ -38,10 +40,12 @@
       >
         <PastOrder
           :pastOrders="past_orders"
-          @showMorePastOrder="showMorePastOrder"
+          @showMorePastOrder="showMoreInfo"
         />
       </q-tab-panel>
+      <!-- ///////////// -->
       <!-- current panel -->
+      <!-- ///////////// -->
       <q-tab-panel
         class="q-pa-0 no-effict"
         style="background: #eeeeee !important"
@@ -54,6 +58,9 @@
           :orders="current_orders"
         />
       </q-tab-panel>
+      <!-- ///////////////// -->
+      <!-- in progress panel -->
+      <!-- ///////////////// -->
       <q-tab-panel
         class="q-pa-0 no-effict"
         style="background: #eeeeee !important"
@@ -88,6 +95,7 @@ export default {
   setup() {
     return {
       tab: ref("current"),
+      // current orders data
       current_orders: ref([
         {
           id: 1,
@@ -130,6 +138,7 @@ export default {
           status_code: 0,
         },
       ]),
+      // pastorders data
       past_orders: ref([
         {
           id: "1",
@@ -177,6 +186,7 @@ export default {
           status_code: 4,
         },
       ]),
+      // done orders data
       done_orders: ref([
         {
           id: 1,
@@ -222,9 +232,13 @@ export default {
     };
   },
   methods: {
+    // accebt order and send it to in progress data
     acceptOrder(id) {},
+    // reject order
     rejectOrder(id) {},
+    // when order is done
     doneOrder(id) {},
+    // show more details about order
     showMoreInfo(order) {
       this.$router.push({
         name: "sapcific",
@@ -235,16 +249,16 @@ export default {
       });
       // console.log(order);
     },
-    showMorePastOrder(order) {
-      this.$router.push({
-        name: "sapcific",
-        params: {
-          id: order.id,
-          code: order.status_code,
-        },
-      });
-      // console.log(order);
-    },
+    // showMorePastOrder(order) {
+    //   this.$router.push({
+    //     name: "sapcific",
+    //     params: {
+    //       id: order.id,
+    //       code: order.status_code,
+    //     },
+    //   });
+    //   // console.log(order);
+    // },
   },
 };
 </script>

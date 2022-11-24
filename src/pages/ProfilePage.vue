@@ -5,8 +5,18 @@
       :setingIcon="true"
       title="ملفي"
     />
+    <!-- /////////////////////////////// -->
+    <!-- profile details and activiteis  -->
+    <!-- /////////////////////////////// -->
     <ProfileInfo />
+    <!-- ///////////////// -->
+    <!-- highlight storys  -->
+    <!-- ///////////////// -->
+
     <HeighLightStory />
+    <!-- ///////////// -->
+    <!-- account posts   -->
+    <!-- ///////////// -->
     <PostsContainer />
   </q-page>
 </template>

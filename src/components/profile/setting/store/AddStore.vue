@@ -5,9 +5,14 @@
       title="اضافة فرع جديد"
       :notifyIcon="true"
     />
-
+    <!-- /////////////////// -->
+    <!-- form for add branch -->
+    <!-- /////////////////// -->
     <q-form @submit.prevent="saveProduct" class="q-my-lg">
       <div class="q-mb-md">
+        <!-- ////////////// -->
+        <!-- restorant name -->
+        <!-- ////////////// -->
         <div class="q-my-xs text-500">اسم المطعم</div>
         <q-input
           placeholder="ادخل اسم المطعم"
@@ -20,6 +25,9 @@
         />
       </div>
       <div class="q-mb-md">
+        <!-- ////////////// -->
+        <!-- branch menager -->
+        <!-- ////////////// -->
         <div class="q-my-xs text-500">مسئول الفرع</div>
         <q-select
           filled
@@ -38,6 +46,9 @@
         </q-select>
       </div>
       <div class="q-mb-md">
+        <!-- /////////// -->
+        <!-- branch name -->
+        <!-- /////////// -->
         <div class="q-my-xs text-500">الفرع</div>
         <q-input
           class="input"
@@ -49,20 +60,36 @@
         />
       </div>
       <div class="q-mb-md">
+        <!-- /////////// -->
+        <!-- branch logo -->
+        <!-- /////////// -->
         <div class="q-my-xs text-500">هوية المتجر</div>
         <upload-single-image @uploadFile="getLogo" />
       </div>
+
       <div class="q-my-xs text-500">السجل التجاري</div>
+      <!-- /////////////////// -->
+      <!-- Commercial Register -->
+      <!-- /////////////////// -->
       <UploadPdf @uploadFile="getPdfFile" />
+      <!-- //////////////// -->
+      <!-- restorant images -->
+      <!-- //////////////// -->
       <div class="q-my-xs text-500">صور المطعم</div>
       <UploadMultibleImage />
       <div class="flex">
+        <!-- ///////// -->
+        <!-- work days -->
+        <!-- ///////// -->
         <div class="text-body2 text-500">ايام العمل</div>
       </div>
       <work-days
         @workDaysIsChanged="changeWorkDays"
         :workDays="store_data.work_days"
       />
+      <!-- ////////// -->
+      <!-- work hours -->
+      <!-- ////////// -->
       <div class="text-body2 text-500">ساعات العمل</div>
       <WorkTime
         :work_time_from="store_data.work_time_from"
@@ -70,6 +97,9 @@
         @workTimeFromIsChanged="changrWorkTimeFrom"
         @workTimeToIsChanged="changeWorkTimeTo"
       />
+      <!-- /////////////////// -->
+      <!-- branch phone number -->
+      <!-- /////////////////// -->
       <div class="row justify-around q-my-md">
         <div class="col-5">
           <q-input
@@ -87,6 +117,9 @@
             </template>
           </q-input>
         </div>
+        <!-- //////////// -->
+        <!-- branch email -->
+        <!-- //////////// -->
         <div class="col-5">
           <q-input
             hint="ادخل بريد الكتروني خاص بالفرع"
@@ -104,6 +137,9 @@
           </q-input>
         </div>
       </div>
+      <!-- ///////////// -->
+      <!-- submit button -->
+      <!-- ///////////// -->
       <div class="row justify-center q-my-md">
         <q-btn
           size="md"
@@ -138,7 +174,9 @@ export default {
   },
   setup() {
     return {
+      // option for sellect data
       stringOptions: ref(["Google", "Facebook", "Twitter", "Apple", "Oracle"]),
+      // form data
       store_data: ref({
         name: "",
         brach_menager: "",
@@ -151,6 +189,7 @@ export default {
         work_time_from: "",
         work_time_to: "",
       }),
+      // option for sellect data
       list_item: [
         {
           label: "اسبوعان",
@@ -172,24 +211,31 @@ export default {
     };
   },
   methods: {
+    // function get file pdf file
     getPdfFile(file) {
       this.store_data.commercial_register = file;
     },
+    // function get logo image file
     getLogo(file) {
       this.store_data.identity = file;
     },
+    // function set or edit work days
     changeWorkDays(val) {
       this.store_data.work_days = val;
     },
+    // function set or edit work time from
+
     changrWorkTimeFrom(val) {
       this.store_data.work_time_from = val;
       console.log(val);
       s;
     },
+    // function set or edit work to
     changeWorkTimeTo(val) {
       this.store_data.work_time_to = val;
       console.log(val);
     },
+    // submit function
     saveProduct(val) {
       // this.store_data.work_time_to = val;
       // console.log(val);

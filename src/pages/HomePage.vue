@@ -287,9 +287,11 @@ export default {
     selectedDataTimeAnalytic(selected) {
       // selected charts
     },
+    // show top product for account
     showAllTopProduct() {
       this.$router.push({ name: "top-products" });
     },
+    // show all cart for account Analytics
     showAllAnalytics() {
       this.$router.push({ name: "AllAnalytics" });
     },

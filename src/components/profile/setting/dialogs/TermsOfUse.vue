@@ -3,6 +3,9 @@
     <q-card-section class="text-center text-body2 text-bold">
       شروط الاستخدام
     </q-card-section>
+    <!-- /////////////////////// -->
+    <!-- list for help and terms -->
+    <!-- /////////////////////// -->
     <q-card-section class="text-sm text-right">
       <div class="q-my-xs">
         لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل لوريم

@@ -4,10 +4,16 @@
       اتصل بنا
     </q-card-section>
     <q-card-section class="q-pa-xs q-my-md">
+      <!-- ///////////////////////////////////////// -->
+      <!-- phone numper for ticnical support for app -->
+      <!-- ///////////////////////////////////////// -->
       <div class="col flex text-right items-center">
         <q-icon size="xs" name="img:icon/call-primary.png" />
         <div class="q-mx-sm text-body2 text-500">+966123456789</div>
       </div>
+      <!-- ///////////////////////////////// -->
+      <!-- mail for ticnical support for app -->
+      <!-- ///////////////////////////////// -->
       <div class="col q-my-md flex text-right items-center">
         <q-icon size="xs" name="img:icon/post-primary.png" />
         <div class="q-mx-sm text-body2 text-500">mail@mail.com</div>
@@ -15,8 +21,14 @@
     </q-card-section>
     <q-card-section class="q-pa-xs text-center">
       <q-icon size="xs" name="img:icon/chat.png" />
+      <!-- //////////////// -->
+      <!-- web site for app -->
+      <!-- //////////////// -->
       <div class="q-mx-sm text-body2 text-500">www.my order.com</div>
     </q-card-section>
+    <!-- ////////////////////////////////////// -->
+    <!-- linkes for my companey in social media -->
+    <!-- ////////////////////////////////////// -->
     <q-card-section class="text-center justify-center">
       <q-icon class="q-mx-xs" size="sm" name="img:icon/facebook-round.png" />
       <q-icon class="q-mx-xs" size="sm" name="img:icon/linkedin-round.png" />

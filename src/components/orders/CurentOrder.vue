@@ -8,9 +8,15 @@
     >
       <q-card-section>
         <div class="row">
+          <!-- //////////// -->
+          <!-- order numper -->
+          <!-- //////////// -->
           <div class="col-8">رقم الطلب{{ order.orderNumber }}#</div>
           <div class="col-4 text-left flex">
             <q-icon size="xs" name="img:/icon/XMLID.png" />
+            <!-- //////////// -->
+            <!-- order price -->
+            <!-- //////////// -->
             <div class="text-center q-mx-xs text-no-wrap">
               {{ order.price }} ر.س
             </div>
@@ -21,27 +27,39 @@
             <div class="text-center">
               <img src="/icon/location.png" alt="" />
             </div>
+            <!-- ////////////// -->
+            <!-- order location -->
+            <!-- ////////////// -->
             <div class="q-mx-sm text-no-wrap">{{ order.place }}</div>
           </div>
           <div class="col-4 text-center flex">
             <div class="col-5 text-left">
               <img src="/icon/calendar.png" alt="" />
             </div>
+            <!-- ////////// -->
+            <!-- order date -->
+            <!-- ////////// -->
             <div class="col text-no-wrap">{{ order.date }}</div>
           </div>
         </div>
         <div class="row">
           <div class="col text-right">
+            <!-- //////////// -->
+            <!-- reject order -->
+            <!-- //////////// -->
             <q-btn
-              @click="$emit('rejectOrder', order.id)"
+              @click="$emit(' acceptOrder', order.id)"
               class="btn-style"
               color="primary"
               label="قبول"
             />
           </div>
+          <!-- //////////////////////////////////////////////// -->
+          <!-- accept for order and send it to in progress tap  -->
+          <!-- //////////////////////////////////////////////// -->
           <div class="col text-left">
             <q-btn
-              @click="$emit('acceptOrder', order.id)"
+              @click="$emit('rejectOrder', order.id)"
               class="btn-style"
               label="رفض"
               outline
@@ -50,6 +68,9 @@
           </div>
         </div>
       </q-card-section>
+      <!-- /////////////////////////////// -->
+      <!-- show more about spacific order  -->
+      <!-- /////////////////////////////// -->
       <q-icon
         @click="$emit('showMore', order)"
         size="sm"

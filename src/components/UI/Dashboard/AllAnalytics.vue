@@ -2,14 +2,17 @@
   <q-page class="q-mx-sm" dir="rtl">
     <DynamicHeader :notifyIcon="true" :backIcon="true" />
     <div class="q-my-md text-body2 text-500">
+      <!-- chart for analytics order today -->
       عدد الطلبات الوارده <span class="text-hint q-mx-sm">اليوم</span>
     </div>
     <AnalyticsOrder @passSorting="sellectedSort" :cards="cards" />
     <div class="q-my-md text-body2 text-500">
+      <!-- chart for analytics order this week -->
       عدد الطلبات الوارده <span class="text-hint q-mx-sm">الاسبوع</span>
     </div>
     <AnalyticsOrder @passSorting="sellectedSort" :cards="cards" />
     <div class="q-my-md text-body2 text-500">
+      <!-- chart for analytics order this month -->
       عدد الطلبات الوارده <span class="text-hint q-mx-sm">الشهر</span>
     </div>
     <AnalyticsOrder @passSorting="sellectedSort" :cards="cards" />

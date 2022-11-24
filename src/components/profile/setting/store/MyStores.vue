@@ -7,10 +7,15 @@
       @emitAdd="creatBranch"
     />
     <TestMap />
-
+    <!-- //////////////////////// -->
+    <!-- form for my store branch -->
+    <!-- //////////////////////// -->
     <q-form @submit.prevent="saveProduct" class="q-my-lg">
       <div class="q-mb-md">
         <div class="q-my-xs text-500">اسم المطعم</div>
+        <!-- ////////////// -->
+        <!-- restorant name -->
+        <!-- ////////////// -->
         <q-input
           placeholder="اسم المطعم"
           v-model="store_data.name"
@@ -21,6 +26,9 @@
           outlined
         />
       </div>
+      <!-- ////////////// -->
+      <!-- branch menager -->
+      <!-- ////////////// -->
       <div class="q-mb-md">
         <div class="q-my-xs text-500">مسئول الفرع</div>
         <q-select
@@ -41,6 +49,9 @@
       </div>
       <div class="q-mb-md">
         <div class="q-my-xs text-500">الفرع</div>
+        <!-- ///////////// -->
+        <!-- branch branch -->
+        <!-- ///////////// -->
         <q-select
           class="input"
           v-model="store_data.brach_name"
@@ -54,30 +65,36 @@
         </q-select>
       </div>
       <div class="q-mb-md">
+        <!-- /////////// -->
+        <!-- branch logo -->
+        <!-- /////////// -->
         <div class="q-my-xs text-500">هوية المتجر</div>
-        <!-- <q-input
-          placeholder="هوية المتجر"
-          v-model="store_data.identity"
-          dense
-          rounded
-          filled
-          class="input"
-          outlined
-        /> -->
         <upload-single-image @uploadFile="getLogo" />
       </div>
       <div class="q-my-xs text-500">السجل التجاري</div>
+      <!-- /////////////////// -->
+      <!-- Commercial Register -->
+      <!-- /////////////////// -->
       <UploadPdf @uploadFile="getPdfFile" />
       <div class="q-my-xs text-500">صور المطعم</div>
+      <!-- //////////////// -->
+      <!-- restorant images -->
+      <!-- //////////////// -->
       <UploadMultibleImage />
       <div class="flex">
         <div class="text-body2 text-500">ايام العمل</div>
       </div>
+      <!-- ///////// -->
+      <!-- work days -->
+      <!-- ///////// -->
       <work-days
         @workDaysIsChanged="changeWorkDays"
         :workDays="store_data.work_days"
       />
       <div class="text-body2 text-500">ساعات العمل</div>
+      <!-- ////////// -->
+      <!-- work hours -->
+      <!-- ////////// -->
       <WorkTime
         :work_time_from="store_data.work_time_from"
         :work_time_to="store_data.work_time_to"
@@ -86,6 +103,9 @@
       />
       <div class="row justify-around q-my-md">
         <div class="col-5">
+          <!-- /////////////////// -->
+          <!-- branch phone number -->
+          <!-- /////////////////// -->
           <q-input type="tel" v-model="store_data.phone" dense>
             <template v-slot:prepend>
               <q-icon
@@ -96,6 +116,9 @@
             </template>
           </q-input>
         </div>
+        <!-- //////////// -->
+        <!-- branch email -->
+        <!-- //////////// -->
         <div class="col-5">
           <q-input type="mail" v-model="store_data.mail" dense>
             <template v-slot:prepend>
@@ -133,10 +156,6 @@ export default {
     WorkTime,
   },
   setup() {
-    // const loader = new Loader({
-    //   apiKey: "YOUR_API_KEY",
-    //   version: "weekly",
-    // });
     return {
       // loader,
       stringOptions: ref(["Google", "Facebook", "Twitter", "Apple", "Oracle"]),
@@ -173,24 +192,29 @@ export default {
     };
   },
   methods: {
+    // function get file pdf file
     getPdfFile(file) {
       this.store_data.commercial_register = file;
     },
+    // function get logo image file
     getLogo(file) {
       this.store_data.identity = file;
     },
+    // function edit work days
     changeWorkDays(val) {
       this.store_data.work_days = val;
     },
+    // function set or edit work time from
     changrWorkTimeFrom(val) {
       this.store_data.work_time_from = val;
       console.log(val);
-      s;
     },
+    // function set or edit work to
     changeWorkTimeTo(val) {
       this.store_data.work_time_to = val;
       console.log(val);
     },
+    // create new branch
     creatBranch() {
       this.$router.push({ name: "AddStore" });
     },

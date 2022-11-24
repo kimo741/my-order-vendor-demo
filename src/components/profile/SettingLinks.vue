@@ -1,5 +1,8 @@
 <template>
   <q-list class="q-my-md setting-list">
+    <!-- ////////////////////// -->
+    <!-- list links for setting -->
+    <!-- ////////////////////// -->
     <q-item
       clickable
       v-ripple
@@ -12,13 +15,22 @@
       @click="handelClick(item)"
     >
       <div class="col-9 text-right flex items-center">
+        <!-- ////////////// -->
+        <!-- icon for links -->
+        <!-- ////////////// -->
         <q-icon size="xs" :name="item.icon" />
+        <!-- ////////////// -->
+        <!-- label for link -->
+        <!-- ////////////// -->
         <div class="q-mx-sm text-body2 text-500">{{ item.label }}</div>
       </div>
       <div class="col text-left">
         <q-icon color="grey-6" size="sm" name="eva-arrow-ios-back-outline" />
       </div>
     </q-item>
+    <!-- ////////////// -->
+    <!-- logout button  -->
+    <!-- ////////////// -->
     <q-item @click="logout">
       <q-btn
         class="text-right text-primary text-500"
@@ -27,21 +39,39 @@
         flat
       />
     </q-item>
+    <!-- /////////////////////////////////// -->
+    <!-- dialog to show contuct us component -->
+    <!-- /////////////////////////////////// -->
     <q-dialog v-model="contact_us_dialog">
       <ContantUs @closeContactUs="contact_us_dialog = false" />
     </q-dialog>
+    <!-- ////////////////////////////////// -->
+    <!-- dialog to show about app component -->
+    <!-- ////////////////////////////////// -->
     <q-dialog v-model="about_app_dialog">
       <about-app @closeAboutApp="about_app_dialog = false" />
     </q-dialog>
+    <!-- /////////////////////////////// -->
+    <!-- dialog to show termes component -->
+    <!-- /////////////////////////////// -->
     <q-dialog v-model="termes_dialog">
       <TermsOfUse @closeTermOfUse="termes_dialog = false" />
     </q-dialog>
+    <!-- /////////////////////////////// -->
+    <!-- dialog to show policy component -->
+    <!-- /////////////////////////////// -->
     <q-dialog v-model="policy_dialog">
       <PrivacyPolicy @closePrivacyPolicy="policy_dialog = false" />
     </q-dialog>
+    <!-- ///////////////////////////// -->
+    <!-- dialog to show help component -->
+    <!-- ///////////////////////////// -->
     <q-dialog v-model="help_dialog">
       <HelpDialog @closePrivacyPolicy="help_dialog = false" />
     </q-dialog>
+    <!-- ///////////////////////////// -->
+    <!-- dialog to show confirm logout -->
+    <!-- ///////////////////////////// -->
     <q-dialog v-model="logout_dialog">
       <LogOut @closePrivacyPolicy="logout_dialog = false" />
     </q-dialog>
@@ -131,6 +161,7 @@ export default {
     checkLogOut() {
       this.logout_dialog = true;
     },
+    // handel on click chack the label for link to open his dailog
     handelClick(item) {
       switch (item.label) {
         case "اتصل بنا":

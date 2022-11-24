@@ -5,6 +5,9 @@
     </q-card-section>
     <q-card-section class="text-sm text-right">
       <q-list dense class="rounded-borders">
+        <!-- //////////////////// -->
+        <!-- list for help dialog -->
+        <!-- //////////////////// -->
         <q-expansion-item
           v-for="(item, i) in 5"
           :key="i"
@@ -12,9 +15,15 @@
           class="bg-primary q-my-sm text-white main-rounded"
         >
           <template v-slot:header>
+            <!-- / -->
+            <!-- Q -->
+            <!-- / -->
             <q-item-section> ما هو لوريم ايبسوم ؟ </q-item-section>
           </template>
           <q-card>
+            <!-- / -->
+            <!-- A -->
+            <!-- / -->
             <q-card-section class="text-right text-hint">
               لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل
               ليتصور طريقه وضع النصوص بالتصاميم سواء

@@ -2,6 +2,10 @@
   <div class="q-pa-md">
     <div class="q-gutter-sm">
       <q-list class="row justify-start items-center">
+        <!-- //////////////////////////////////////////////////// -->
+        <!-- checkBox for sellect days branch will open in week   -->
+        <!-- //////////////////////////////////////////////////// -->
+
         <q-item
           class="col-5"
           v-for="(day, i) in week"
@@ -25,10 +29,6 @@
         </q-item>
       </q-list>
     </div>
-
-    <!-- <div class="q-px-sm q-mt-sm">
-      Your selection is: <strong>{{ work_days }}</strong>
-    </div> -->
   </div>
 </template>
 

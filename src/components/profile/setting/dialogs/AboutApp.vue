@@ -3,6 +3,9 @@
     <q-card-section class="text-center text-body2 text-bold">
       عن التطبيق
     </q-card-section>
+    <!-- ///////////////////////////////////////// -->
+    <!-- discruption for details about application -->
+    <!-- ///////////////////////////////////////// -->
     <q-card-section class="text-sm text-center">
       لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل لوريم
       ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض لوريم ايبسوم هو نموذج
