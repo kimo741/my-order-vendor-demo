@@ -3,7 +3,7 @@
     <div class="q-gutter-sm">
       <q-list class="row justify-start items-center">
         <q-item
-          class="col-4"
+          class="col-5"
           v-for="(day, i) in week"
           :key="i"
           tag="label"
@@ -16,6 +16,7 @@
               :val="day"
               color="primary"
               dense
+              class="q-ma-0"
             />
           </q-item-section>
           <q-item-section class="q-pa-0">

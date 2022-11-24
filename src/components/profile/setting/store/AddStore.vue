@@ -1,18 +1,16 @@
 <template>
   <q-page class="q-mx-sm" dir="rtl">
     <DynamicHeader
-      title="تفاصيل المطعم"
-      :addIcon="true"
+      :back-icon="true"
+      title="اضافة فرع جديد"
       :notifyIcon="true"
-      @emitAdd="creatBranch"
     />
-    <TestMap />
 
     <q-form @submit.prevent="saveProduct" class="q-my-lg">
       <div class="q-mb-md">
         <div class="q-my-xs text-500">اسم المطعم</div>
         <q-input
-          placeholder="اسم المطعم"
+          placeholder="ادخل اسم المطعم"
           v-model="store_data.name"
           dense
           rounded
@@ -41,29 +39,17 @@
       </div>
       <div class="q-mb-md">
         <div class="q-my-xs text-500">الفرع</div>
-        <q-select
+        <q-input
           class="input"
           v-model="store_data.brach_name"
-          outlined
           dense
           rounded
-          :options="list_item"
           filled
-          placeholder="الفرع "
-        >
-        </q-select>
+          placeholder="ادخل أسم خاص بالفرع"
+        />
       </div>
       <div class="q-mb-md">
         <div class="q-my-xs text-500">هوية المتجر</div>
-        <!-- <q-input
-          placeholder="هوية المتجر"
-          v-model="store_data.identity"
-          dense
-          rounded
-          filled
-          class="input"
-          outlined
-        /> -->
         <upload-single-image @uploadFile="getLogo" />
       </div>
       <div class="q-my-xs text-500">السجل التجاري</div>
@@ -86,7 +72,12 @@
       />
       <div class="row justify-around q-my-md">
         <div class="col-5">
-          <q-input type="tel" v-model="store_data.phone" dense>
+          <q-input
+            hint="ادخل رقم هاتف خاص بالفرع"
+            type="tel"
+            v-model="store_data.phone"
+            dense
+          >
             <template v-slot:prepend>
               <q-icon
                 class="q-mx-xs"
@@ -97,7 +88,12 @@
           </q-input>
         </div>
         <div class="col-5">
-          <q-input type="mail" v-model="store_data.mail" dense>
+          <q-input
+            hint="ادخل بريد الكتروني خاص بالفرع"
+            type="mail"
+            v-model="store_data.mail"
+            dense
+          >
             <template v-slot:prepend>
               <q-icon
                 size="xs"
@@ -108,6 +104,16 @@
           </q-input>
         </div>
       </div>
+      <div class="row justify-center q-my-md">
+        <q-btn
+          size="md"
+          class="q-py-sm main-rounded"
+          color="primary"
+          label="حفظ"
+          style="width: 80%"
+          type="submit"
+        />
+      </div>
     </q-form>
   </q-page>
 </template>
@@ -116,7 +122,6 @@
 import DynamicHeader from "src/components/UI/DynamicHeader.vue";
 
 import { ref } from "vue";
-import TestMap from "src/components/TestMap.vue";
 import UploadPdf from "src/components/UI/UploadPdf.vue";
 import UploadMultibleImage from "src/components/UI/UploadMultibleImage.vue";
 import UploadSingleImage from "src/components/UI/UploadSingleImage.vue";
@@ -125,7 +130,6 @@ import WorkTime from "./WorkTime.vue";
 export default {
   components: {
     DynamicHeader,
-    TestMap,
     UploadPdf,
     UploadMultibleImage,
     UploadSingleImage,
@@ -133,12 +137,7 @@ export default {
     WorkTime,
   },
   setup() {
-    // const loader = new Loader({
-    //   apiKey: "YOUR_API_KEY",
-    //   version: "weekly",
-    // });
     return {
-      // loader,
       stringOptions: ref(["Google", "Facebook", "Twitter", "Apple", "Oracle"]),
       store_data: ref({
         name: "",
@@ -146,11 +145,11 @@ export default {
         brach_name: "",
         identity: "",
         commercial_register: "",
-        phone: "+966123456789 ",
-        mail: "mail@mail.com",
+        phone: "",
+        mail: "",
         work_days: ["الاحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس"],
-        work_time_from: "10:56",
-        work_time_to: "10:56",
+        work_time_from: "",
+        work_time_to: "",
       }),
       list_item: [
         {
@@ -191,8 +190,9 @@ export default {
       this.store_data.work_time_to = val;
       console.log(val);
     },
-    creatBranch() {
-      this.$router.push({ name: "AddStore" });
+    saveProduct(val) {
+      // this.store_data.work_time_to = val;
+      // console.log(val);
     },
     // getInputValue(e) {
     //   const val = e.target.value;

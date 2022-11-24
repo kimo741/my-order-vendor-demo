@@ -44,6 +44,7 @@ import PaymentsAndWallet from 'src/components/profile/setting/PaymentsAndWallet.
 import SaleCode from 'src/components/profile/setting/SaleCode.vue'
 import GeneratDiscountCode from 'src/components/profile/setting/SaleCode/GeneratDiscoutCode.vue'
 import MyStores from 'src/components/profile/setting/store/MyStores.vue'
+import AddStore from 'src/components/profile/setting/store/AddStore.vue'
 /////////////////////////////////////////////////////
 //////////////////// routs //////////////////////////
 /////////////////////////////////////////////////////
@@ -247,6 +248,11 @@ const routes = [
           path:"my-store",
           component:MyStores,
           name:"MyStores"
+        },
+        {
+          path:"add-store",
+          component:AddStore,
+          name:"AddStore"
         },
       ]
     },
