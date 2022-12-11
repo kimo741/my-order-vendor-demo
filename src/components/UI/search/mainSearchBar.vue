@@ -13,9 +13,9 @@
     rounded
     filled
     label="بحث"
-    @focusin="focusInput"
     @keyup="$emit('passScarchVal', global_search)"
   >
+    <!-- @focusin="focusInput" -->
     <!-- /////////// -->
     <!-- icon search -->
     <!-- /////////// -->

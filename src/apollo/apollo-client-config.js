@@ -1,14 +1,31 @@
+
+// const local = "http://192.168.1.36/graphql";
+// const serval = ""
 export default async function (/* { app, router, store, ssrContext, urlPath, redirect } */) {
   return {
     default: {
       // 'apollo-link-http' config
       // https://www.apollographql.com/docs/link/links/http/#options
       httpLinkConfig: {
-        // you can define the 'uri' here or using an env variable when
+          // header: {
+          //   "Content-Type":"multipart/form-data; charset=utf-8; boundary=" + Math.random().toString().substr(2),
+          //   "Access-Control-Allow-Origin": "*",
+          //   "mode": 'cors',
+
+          // },
+          // fetchOptions: {
+          //   mode: 'cors',
+          // },
+          // you can define the 'uri' here or using an env variable when
         // running quasar commands, for example:
         // `GRAPHQL_URI=https://prod.example.com/graphql quasar build`
         // `GRAPHQL_URI=https://dev.example.com/graphql quasar dev`
-        uri: process.env.GRAPHQL_URI || 'https://flyby-gateway.herokuapp.com'
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "mode": 'cors',
+          // 'Authorization': 'Bearer ' +localStorage.getItem('access_token')
+        },
+        uri: process.env.GRAPHQL_URI || "http://192.168.1.36/graphql"
       },
 
       // 'apollo-cache-inmemory' config
@@ -27,7 +44,10 @@ export default async function (/* { app, router, store, ssrContext, urlPath, red
 
     dev: {
       httpLinkConfig: {
-        uri: process.env.GRAPHQL_URI || 'https://flyby-gateway.herokuapp.com'
+        uri: process.env.GRAPHQL_URI || "http://192.168.1.36/graphql"
+      },
+      Headers:{
+            "Access-Control-Allow-Origin": "*",
       }
     },
 

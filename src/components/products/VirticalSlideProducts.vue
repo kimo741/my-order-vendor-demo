@@ -50,9 +50,9 @@
                 dense
                 class="text-no-wrap"
                 @click="changeStatus(product)"
-                v-model="product.status"
+                :model-value="product.status === '1' ? true : false"
               />
-              <!-- @click="changeStatus(product)" -->
+
               <div
                 class="text-left q-mx-sm"
                 :class="!product.status ? 'text-hint' : ''"
@@ -72,11 +72,15 @@
           name="img:icon/more.png"
         />
       </q-card-section>
+      {{ changeStatus }}
     </q-card>
   </div>
 </template>
 
 <script>
+import { ref } from "vue";
+import gql from "graphql-tag";
+import { useMutation } from "@vue/apollo-composable";
 export default {
   props: {
     products: {
@@ -84,22 +88,43 @@ export default {
       require: true,
     },
   },
-  data() {
+  setup() {
+    let prod_id = ref("");
+    let prod_status = ref("");
+    const { mutate: updateState } = useMutation(
+      gql`
+        mutation updateProduct($ids: Int!, $status: String!) {
+          updateProduct(id: $ids, status: $status) {
+            id
+            status
+          }
+        }
+      `,
+      () => ({
+        variables: {
+          status: prod_id.value,
+          ids: parseInt(prod_id.value),
+        },
+      })
+    );
+
+    const changeStatus = (product) => {
+      if (product.status == "1") {
+        prod_status.value = "0";
+      } else {
+        prod_status.value = "1";
+      }
+      prod_id.value = product.id;
+      updateState();
+    };
     return {
-      product_active: "",
+      product_active: ref(""),
+      changeStatus,
+      prod_id,
+      prod_status,
     };
   },
-  computed: {
-    statusValue: {
-      get() {},
-    },
-  },
   methods: {
-    changeStatus(product) {
-      let status = product.status;
-      let id = product.id;
-      console.log(status, id);
-    },
     showAllinfo(product) {
       if (this.product_active == product.id) {
         this.product_active = "";

@@ -1,5 +1,6 @@
 <template>
   <q-page class="q-mx-sm" dir="rtl">
+    <!-- {{ getProducts }} -->
     <!-- /////// -->
     <!-- headeer -->
     <!-- /////// -->
@@ -21,8 +22,9 @@
     <!-- ////////////// -->
     <VirticalSlideProducts
       @editeOrDelete="editeOrDeleteProduct"
-      :products="products"
+      :products="getProducts"
     />
+    <!-- @changeProductStatus="changeProductStatus" -->
     <!-- ///////////////////////////////// -->
     <!-- dialog for edit or delete Product -->
     <!-- ///////////////////////////////// -->
@@ -38,6 +40,7 @@
         @canselDelete="canselDeleteProduct"
         @confirmDelete="confirmDeleteProduct"
     /></q-dialog>
+    <!-- {{ getProducts }} -->
   </q-page>
 </template>
 
@@ -50,6 +53,8 @@ import FilterBar from "src/components/products/FilterBar.vue";
 import VirticalSlideProducts from "src/components/products/VirticalSlideProducts.vue";
 import EditAndDelete from "src/components/products/EditAndDelete.vue";
 import ConfirmDelete from "src/components/UI/ConfirmDelete.vue";
+import { allProducts } from "./use/productPage";
+// import { updateProduct } from "./use/productPage";
 export default {
   components: {
     DynamicHeader,
@@ -61,9 +66,35 @@ export default {
     ConfirmDelete,
   },
   setup() {
+    let auth_vendor = window.localStorage.getItem("auth_vendor");
+    // const product_to_update = ref({});
+    // const productId_to_update = ref("");
+    // update product method
+    // const changeProductStatus = async (product) => {
+    //   const { id, ...productOpj } = await product;
+    //   productId_to_update.value = id;
+    //   product_to_update.value = productOpj;
+    // };
+    const { getProducts } = allProducts(auth_vendor);
+    // const { mutateProductUpdate } = updateProduct(
+    //   product_to_update.value,
+    //   productId_to_update.value
+    // );
+    // const editAllProduct = getProducts.map((p) => {
+    //   parseInt(p.status);
+    // });
+    // Online Javascript Editor for free
+    // Write, Edit and Run your Javascript code using JS Online Compiler
+    // console.log(getProducts);
+
     return {
+      getProducts,
       dialog: ref(false),
       dialog_delete: ref(false),
+      // product_to_update,
+      // mutateProductUpdate,
+      // productId_to_update,
+      // changeProductStatus,
       products: ref([
         {
           id: "1",
@@ -161,5 +192,13 @@ export default {
 </script>
 
 <style>
+/* console.log("Welcome to Programiz!");
+
+For inputArray = ["aba", "aa", "ad", "vcd", "aba"],
+the output should be
+solution(inputArray) = ["aba", "vcd", "aba"]
+function solution(inputArray) {
+}
+inputArray.splite() */
 </style>
 

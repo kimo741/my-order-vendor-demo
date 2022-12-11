@@ -1,6 +1,6 @@
 <template>
   <q-page class="q-mx-sm">
-    <!-- {{ locations }}asdasd -->
+    <!-- {{ locations }} -->
     <!-- ///////////// -->
     <!-- header navbar -->
     <!-- ///////////// -->
@@ -118,7 +118,7 @@ import TitleBarWithDropdown from "src/components/UI/Dashboard/TitleBarWithDropdo
 import SliderItemV from "src/components/UI/sliders/SliderItemV.vue";
 import DounatChart from "src/components/Charts/DounatChart.vue";
 import GridFour from "src/components/UI/grid/GridFour.vue";
-import { location } from "./use/HomePageGraph";
+// import { location } from "./use/HomePageGraph";
 import MainSearchBar from "src/components/UI/search/mainSearchBar.vue";
 export default {
   name: "IndexPage",
@@ -135,10 +135,11 @@ export default {
     MainSearchBar,
   },
   setup() {
+    // let auth_vendor = window.localStorage.getItem("auth_vendor");
     // graphql requist
-    const { locations } = location();
+    // const { locations } = location(auth_vendor);
     return {
-      locations,
+      // locations,
       options_dounat: ref({
         series: [80],
         plotOptions: {
@@ -295,6 +296,9 @@ export default {
     showAllAnalytics() {
       this.$router.push({ name: "AllAnalytics" });
     },
+  },
+  created() {
+    window.localStorage.setItem("auth_vendor", 1);
   },
 };
 </script>

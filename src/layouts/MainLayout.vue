@@ -56,10 +56,10 @@ export default {
       }
     },
   },
-  mounted() {
-    // window.addEventListener("scroll", this.handleScroll);
-    console.log(this.$q);
-  },
+  // mounted() {
+  //   // window.addEventListener("scroll", this.handleScroll);
+  //   console.log(this.$q);
+  // },
 };
 </script>
 

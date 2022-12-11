@@ -21,8 +21,8 @@
         rounded
         filled
         label="بحث"
-        @focusin="focusInput"
       >
+        <!-- @focusin="focusInput" -->
         <!-- @focusout="outOfFocus" -->
         <!-- /////////// -->
         <!-- icon search -->
