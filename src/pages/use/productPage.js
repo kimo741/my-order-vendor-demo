@@ -12,6 +12,7 @@ query getById($auth_vendor:ID!){
        vendor_id,
        status,
        price,
+       disc:description,
     }
 }
   `,

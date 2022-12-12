@@ -12,7 +12,7 @@
         <!-- product image -->
         <!-- ///////////// -->
         <div class="col-3">
-          <q-img src="test/apple-pay.png" />
+          <q-img :src="product.img ? 'icons/favicon-96x96.png' : product.img" />
         </div>
         <!-- /////////////// -->
         <!-- product content -->
@@ -72,7 +72,7 @@
           name="img:icon/more.png"
         />
       </q-card-section>
-      {{ changeStatus }}
+      <!-- {{ changeStatus() }} -->
     </q-card>
   </div>
 </template>
@@ -102,7 +102,7 @@ export default {
       `,
       () => ({
         variables: {
-          status: prod_id.value,
+          status: prod_status.value,
           ids: parseInt(prod_id.value),
         },
       })
