@@ -54,6 +54,7 @@ import VirticalSlideProducts from "src/components/products/VirticalSlideProducts
 import EditAndDelete from "src/components/products/EditAndDelete.vue";
 import ConfirmDelete from "src/components/UI/ConfirmDelete.vue";
 import { allProducts } from "./use/productPage";
+import { updateState } from "./use/productPage";
 // import { updateProduct } from "./use/productPage";
 export default {
   components: {
@@ -67,25 +68,7 @@ export default {
   },
   setup() {
     let auth_vendor = window.localStorage.getItem("auth_vendor");
-    // const product_to_update = ref({});
-    // const productId_to_update = ref("");
-    // update product method
-    // const changeProductStatus = async (product) => {
-    //   const { id, ...productOpj } = await product;
-    //   productId_to_update.value = id;
-    //   product_to_update.value = productOpj;
-    // };
     const { getProducts } = allProducts(auth_vendor);
-    // const { mutateProductUpdate } = updateProduct(
-    //   product_to_update.value,
-    //   productId_to_update.value
-    // );
-    // const editAllProduct = getProducts.map((p) => {
-    //   parseInt(p.status);
-    // });
-    // Online Javascript Editor for free
-    // Write, Edit and Run your Javascript code using JS Online Compiler
-    // console.log(getProducts);
 
     return {
       getProducts,
@@ -95,72 +78,72 @@ export default {
       // mutateProductUpdate,
       // productId_to_update,
       // changeProductStatus,
-      products: ref([
-        {
-          id: "1",
-          name: "اسم الطبق",
-          disc: "وريم ايبسوم هو نموذج افتراضي افتراضيافتراضيافتراضيافتراضي",
-          category: "مشروبات",
-          sup_categoty: null,
-          additions: null,
-          price: "400",
-          price_sale: "0",
-          status: true,
-          img: "apple-pay.png",
-          sale_code: null,
-          sale_timeout: null,
-          sale_from: null,
-          sale_to: null,
-        },
-        {
-          id: "2",
-          name: "اسم الطبق",
-          disc: "وريم ايبسوم هو نموذج افتراضي افتراضيافتراضيافتراضيافتراضي",
-          price: "300",
-          status: false,
-          img: "prod1.png",
-          category: "مشروبات",
-          price_sale: "0",
-          sup_categoty: null,
-          additions: null,
-          sale_code: null,
-          sale_timeout: null,
-          sale_from: null,
-          sale_to: null,
-        },
-        {
-          id: "3",
-          name: "اسم الطبق",
-          disc: "وريم ايبسوم هو نموذج افتراضي افتراضيافتراضيافتراضيافتراضي",
-          price: "250",
-          status: false,
-          img: "Rectangle 4318.png",
-          category: "مشروبات",
-          price_sale: "0",
-          sup_categoty: null,
-          additions: null,
-          sale_code: null,
-          sale_timeout: null,
-          sale_from: null,
-          sale_to: null,
-        },
-        {
-          id: "4",
-          name: "اسم الطبق",
-          disc: "وريم ايبسوم هو نموذج افتراضي افتراضيافتراضيافتراضيافتراضي",
-          price: "600",
-          status: true,
-          img: "Rectangle 4322.png",
-          category: "مشروبات",
-          price_sale: "0",
-          sup_categoty: null,
-          additions: null,
-          sale_code: null,
-          sale_timeout: null,
-          sale_from: null,
-          sale_to: null,
-        },
-      ]),
+      // products: ref([
+      //   {
+      //     id: "1",
+      //     name: "اسم الطبق",
+      //     disc: "وريم ايبسوم هو نموذج افتراضي افتراضيافتراضيافتراضيافتراضي",
+      //     category: "مشروبات",
+      //     sup_categoty: null,
+      //     additions: null,
+      //     price: "400",
+      //     price_sale: "0",
+      //     status: true,
+      //     img: "apple-pay.png",
+      //     sale_code: null,
+      //     sale_timeout: null,
+      //     sale_from: null,
+      //     sale_to: null,
+      //   },
+      //   {
+      //     id: "2",
+      //     name: "اسم الطبق",
+      //     disc: "وريم ايبسوم هو نموذج افتراضي افتراضيافتراضيافتراضيافتراضي",
+      //     price: "300",
+      //     status: false,
+      //     img: "prod1.png",
+      //     category: "مشروبات",
+      //     price_sale: "0",
+      //     sup_categoty: null,
+      //     additions: null,
+      //     sale_code: null,
+      //     sale_timeout: null,
+      //     sale_from: null,
+      //     sale_to: null,
+      //   },
+      //   {
+      //     id: "3",
+      //     name: "اسم الطبق",
+      //     disc: "وريم ايبسوم هو نموذج افتراضي افتراضيافتراضيافتراضيافتراضي",
+      //     price: "250",
+      //     status: false,
+      //     img: "Rectangle 4318.png",
+      //     category: "مشروبات",
+      //     price_sale: "0",
+      //     sup_categoty: null,
+      //     additions: null,
+      //     sale_code: null,
+      //     sale_timeout: null,
+      //     sale_from: null,
+      //     sale_to: null,
+      //   },
+      //   {
+      //     id: "4",
+      //     name: "اسم الطبق",
+      //     disc: "وريم ايبسوم هو نموذج افتراضي افتراضيافتراضيافتراضيافتراضي",
+      //     price: "600",
+      //     status: true,
+      //     img: "Rectangle 4322.png",
+      //     category: "مشروبات",
+      //     price_sale: "0",
+      //     sup_categoty: null,
+      //     additions: null,
+      //     sale_code: null,
+      //     sale_timeout: null,
+      //     sale_from: null,
+      //     sale_to: null,
+      //   },
+      // ]),
     };
   },
   methods: {

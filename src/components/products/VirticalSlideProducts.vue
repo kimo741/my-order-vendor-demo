@@ -57,7 +57,7 @@
                 class="text-left q-mx-sm"
                 :class="!product.status ? 'text-hint' : ''"
               >
-                {{ product.status ? "متوفر" : "غير متوفر" }}
+                {{ product.status === "1" ? "متوفر" : "غير متوفر" }}
               </div>
             </div>
           </div>
@@ -89,8 +89,11 @@ export default {
     },
   },
   setup() {
+    // id for product to change status
     let prod_id = ref("");
+    // product status affter toggle it
     let prod_status = ref("");
+    // mutetion requist for change status
     const { mutate: updateState } = useMutation(
       gql`
         mutation updateProduct($ids: Int!, $status: String!) {
