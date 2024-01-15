@@ -1,4 +1,4 @@
-# my-oreder-vendors (my-order)
+# my-oreder-vendors (my-order) mobile app by by quasar to deploying web applications to mobile app.
 
 A Quasar Project
 
